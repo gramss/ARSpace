@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARFun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gPa-qA-TYg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-aO-LRo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-2r-YnT">
+                                <rect key="frame" x="150" y="589" width="75" height="75"/>
+                                <state key="normal" image="icons8-chevron_down"/>
+                                <connections>
+                                    <action selector="btnDown:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6B8-Qu-BUU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-3T-FMB">
+                                <rect key="frame" x="124" y="492" width="126" height="75"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" image="icons8-chevron_up"/>
+                                <connections>
+                                    <action selector="btnUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9f7-ym-jxa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odc-gB-qrX">
+                                <rect key="frame" x="198" y="541" width="75" height="75"/>
+                                <state key="normal" image="icons8-chevron_right"/>
+                                <connections>
+                                    <action selector="btnRight:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CZf-n1-i4P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knJ-wh-TGW">
+                                <rect key="frame" x="101" y="541" width="75" height="75"/>
+                                <state key="normal" image="icons8-chevron_left"/>
+                                <connections>
+                                    <action selector="btnLeft:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fZM-LW-jVU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hXc-aO-LRo" secondAttribute="trailing" id="4zz-CX-1Ef"/>
+                            <constraint firstItem="knJ-wh-TGW" firstAttribute="leading" secondItem="ZVO-nm-eBd" secondAttribute="leading" constant="101" id="7jz-78-xfW"/>
+                            <constraint firstItem="Krx-3T-FMB" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" constant="472" id="8qn-xv-vxj"/>
+                            <constraint firstItem="Krx-3T-FMB" firstAttribute="centerX" secondItem="hXc-aO-LRo" secondAttribute="centerX" id="9fu-Ws-Fgb"/>
+                            <constraint firstItem="Krx-3T-FMB" firstAttribute="leading" secondItem="ZVO-nm-eBd" secondAttribute="leading" constant="124" id="JHg-1X-mby"/>
+                            <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" constant="521" id="Kg8-Bj-cqI"/>
+                            <constraint firstItem="odc-gB-qrX" firstAttribute="leading" secondItem="knJ-wh-TGW" secondAttribute="trailing" constant="22" id="VHe-rP-rbg"/>
+                            <constraint firstItem="hXc-aO-LRo" firstAttribute="bottom" secondItem="ZVO-nm-eBd" secondAttribute="bottom" id="XFC-gc-mtg"/>
+                            <constraint firstItem="Krx-3T-FMB" firstAttribute="centerX" secondItem="Cl3-2r-YnT" secondAttribute="centerX" id="fXv-yV-wUo"/>
+                            <constraint firstItem="Cl3-2r-YnT" firstAttribute="top" secondItem="Krx-3T-FMB" secondAttribute="bottom" constant="22" id="i5g-td-LWS"/>
+                            <constraint firstItem="hXc-aO-LRo" firstAttribute="leading" secondItem="gPa-qA-TYg" secondAttribute="leading" id="mwB-Zd-ngH"/>
+                            <constraint firstItem="hXc-aO-LRo" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" id="t66-Zq-i0f"/>
+                            <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="odc-gB-qrX" secondAttribute="top" id="ySZ-rc-Njd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZVO-nm-eBd"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="hXc-aO-LRo" id="sWD-GA-tWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-chevron_down" width="75" height="75"/>
+        <image name="icons8-chevron_left" width="75" height="75"/>
+        <image name="icons8-chevron_right" width="75" height="75"/>
+        <image name="icons8-chevron_up" width="75" height="75"/>
+    </resources>
+</document>
