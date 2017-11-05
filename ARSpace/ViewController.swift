@@ -12,7 +12,8 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     var airpl : Airplane?
-
+    var scanFinished = false
+    
     @IBOutlet weak var startView: UIView!
     
     
@@ -24,11 +25,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //sceneView.showsStatistics = false // turn of point cloud when pane is found
         // turn on visible pane?
-        startView.isHidden = true
-        controlView.isHidden = false
+        if !scanFinished{
+            lblTextForStart.text = ""
+            scanFinished = true
+        }else{
+            startView.isHidden = true
+            controlView.isHidden = false
+        }
+    }
+    func planeFound() {
+        btnStart.isHidden = false
+        lblTextForStart.text = "Press the butten to play"
     }
     
-
+    func notLookingAtPane() {
+        btnStart.setImage(#imageLiteral(resourceName: "icons8-start_filled-greyished"), for: UIControlState .normal)
+    }
+    func lookingAtPane(){
+        btnStart.setImage(#imageLiteral(resourceName: "icons8-start_filled"), for: UIControlState .normal)
+    }
+    
     @IBAction func btnLeft(_ sender: UIButton) {
         airpl?.moveLeft()
     }
@@ -44,7 +60,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        controlView.isHidden = true
+        //controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
         
