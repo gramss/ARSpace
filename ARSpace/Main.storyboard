@@ -123,9 +123,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="ControlView" destination="3IW-CH-hkC" id="8KQ-uJ-Fcw"/>
                         <outlet property="btnStart" destination="Cz8-Zv-qgF" id="3b5-wV-I9s"/>
+                        <outlet property="controlView" destination="3IW-CH-hkC" id="36d-bt-SY7"/>
                         <outlet property="lblTextForStart" destination="APt-ko-9TE" id="1nF-fD-eVV"/>
                         <outlet property="sceneView" destination="RXZ-wc-odS" id="VIP-ci-dFv"/>
+                        <outlet property="startView" destination="qbA-aP-dlK" id="Pl3-RC-AGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

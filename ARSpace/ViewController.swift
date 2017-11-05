@@ -13,7 +13,10 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
     var airpl : Airplane?
 
-    //@IBOutlet weak var ControlView: UIView!
+    @IBOutlet weak var startView: UIView!
+    
+    
+    @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
     @IBOutlet weak var btnStart: UIButton!
@@ -21,7 +24,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //sceneView.showsStatistics = false // turn of point cloud when pane is found
         // turn on visible pane?
-        btnStart.isHidden = true
+        startView.isHidden = true
+        controlView.isHidden = false
     }
     
 
@@ -40,7 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
         
