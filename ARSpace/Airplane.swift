@@ -29,6 +29,7 @@ class Airplane{
         __scaleTo(0.25)          //Shrink the model
         __setPosition(0, 0, -0.5)    //Place the Airplane 0.5 meters ahead of you
         sceneview.scene.rootNode.addChildNode(airplanenode)
+//        airplanenode.removeFromParentNode()
     }
     let animduration : Double = 0.25
     let movedistance : CGFloat = 0.5
