@@ -11,7 +11,22 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    @IBAction func testButton(_ sender: Any) {
+        asteroid = Asteroid(sceneView)
+        
+//        for node in (asteroid?.sceneView.scene.rootNode.childNodes)!{
+//            let moveRock = SCNAction.moveBy(x: 0, y: 0.5, z: 0, duration: 1)
+//            let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: 1)
+//            let fadeIn = SCNAction.fadeOpacity(to: 1, duration: 1)
+//            let routine = SCNAction.sequence([fadeOut, fadeIn, moveRock])
+//            let foreverRoutine = SCNAction.repeatForever(routine)
+//            //(asteroid?.sceneView.scene.rootNode.childNodes)!
+//            
+//            node.runAction(foreverRoutine)
+        }
+    }
     var airpl : Airplane?
+    var asteroid : Asteroid?
     var scanFinished = false
     
     @IBOutlet weak var startView: UIView!
@@ -74,16 +89,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         airpl = Airplane(sceneView, "starship.dae")
 //        airpl.moveRight()
-        
+//
 //        for node in sceneView.scene.rootNode.childNodes {
 //            let moveShip = SCNAction.moveBy(x: 0, y: 0.5, z: -0.5, duration: 1)
 //            let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: 1)
 //            let fadeIn = SCNAction.fadeOpacity(to: 1, duration: 1)
 //            let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
 //            let foreverRoutine = SCNAction.repeatForever(routine)
-            
-            
+//
+//
 //            node.runAction(foreverRoutine)
+//
 //            airpl.moveRight()
 //            node.
 //        }
