@@ -12,7 +12,7 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    @IBAction func testButton(_ sender: Any) {
+    @IBAction func shootButton(_ sender: Any) {
         asteroid = Asteroid(sceneView)
     }
     var planeNode : SCNNode = SCNNode()
@@ -25,12 +25,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var btnCntrlRight: UIButton!
     @IBOutlet weak var btnCntrlLeft: UIButton!
     @IBAction func btnCntrlForwardPressed(_ sender: Any) {
-
+        airpl?.moveForward()
     }
     @IBAction func btnCntrlBackwardPressed(_ sender: Any) {
-    
+        airpl?.moveBackward()
     }
     
+    @IBOutlet weak var btnShoot: UIButton!
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
@@ -54,6 +55,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             startView.isHidden = true
             btnCntrlLeft.isHidden  = false
             btnCntrlRight.isHidden = false
+            btnShoot.isHidden = false
         }
     }
     func planeFound() {

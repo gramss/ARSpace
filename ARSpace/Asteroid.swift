@@ -28,7 +28,7 @@ class Asteroid{
         
         let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0.5)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.brown
+        material.diffuse.contents = UIColor.red
         box.firstMaterial = material
         
         asteroidnode = SCNNode(geometry: box)
