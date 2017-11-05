@@ -43,6 +43,8 @@ class Asteroid{
 //        asteroidnode?.physicsField? = 0
 //        asteroidnode?.physicsField?.direction.z = -1
         let forceVector = SCNVector3(0, 0, -9)
+        
+        
         asteroidnode?.physicsBody?.applyForce(forceVector, asImpulse: true)
         let cc = getCameraCoordinates(sceneView: sceneView)
         
