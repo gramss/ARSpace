@@ -26,6 +26,8 @@ class Airplane{
         for childNode in nodeArray {
             airplanenode.addChildNode(childNode as SCNNode)
         }
+        __scaleTo(0.25)          //Shrink the model
+        __setPosition(0, 0, 0.5)    //Place the Airplane 0.5 meters ahead of you
         sceneview.scene.rootNode.addChildNode(airplanenode)
     }
     let animduration : Double = 0.25
@@ -70,6 +72,20 @@ class Airplane{
         
         for childNode in nodeArray {
             childNode.runAction(routine)
+        }
+    }
+    func __scaleTo(_ scaleFactor : Double){
+        let nodeArray = airplanenode.childNodes
+        
+        for childNode in nodeArray {
+            childNode.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
+        }
+    }
+    func __setPosition(_ x : Double,_ y : Double,_ z :Double){
+        let nodeArray = airplanenode.childNodes
+        
+        for childNode in nodeArray {
+            childNode.position = SCNVector3(x, y, z)
         }
     }
 }
