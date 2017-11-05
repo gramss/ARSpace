@@ -30,7 +30,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         // Create a new scene
 //        let scene = SCNScene(named: "art.scnassets/ship.scn")!
@@ -38,7 +38,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
 //        sceneView.scene = scene
         
-        let airpl = Airplane(sceneView, "art.scnassets/ship.scn")
+        let airpl = Airplane(sceneView, "starship.dae")
         airpl.moveRight()
         
 //        for node in sceneView.scene.rootNode.childNodes {
