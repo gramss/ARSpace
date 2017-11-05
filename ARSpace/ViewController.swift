@@ -91,15 +91,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
-        if let plane = anchor as? ARPlaneAnchor {
-            print("X: \(plane.extent.x)m Z: \(plane.extent.z)m");
-        }
+        renderer_Add(node: node, anchor: anchor)  //In RendererFunctions
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         print("update");
-        if let plane = anchor as? ARPlaneAnchor {
-            print("X: \(plane.extent.x)m Z: \(plane.extent.z)m");
-        }
+        renderer_Update(node: node, anchor: anchor)
     }
 }
