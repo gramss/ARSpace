@@ -11,20 +11,6 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-    @IBAction func testButton(_ sender: Any) {
-        asteroid = Asteroid(sceneView)
-        
-//        for node in (asteroid?.sceneView.scene.rootNode.childNodes)!{
-//            let moveRock = SCNAction.moveBy(x: 0, y: 0.5, z: 0, duration: 1)
-//            let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: 1)
-//            let fadeIn = SCNAction.fadeOpacity(to: 1, duration: 1)
-//            let routine = SCNAction.sequence([fadeOut, fadeIn, moveRock])
-//            let foreverRoutine = SCNAction.repeatForever(routine)
-//            //(asteroid?.sceneView.scene.rootNode.childNodes)!
-//            
-//            node.runAction(foreverRoutine)
-      //  }
-    }
     
     @IBAction func testButton(_ sender: Any) {
         asteroid = Asteroid(sceneView)
@@ -38,6 +24,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var btnCntrlRight: UIButton!
     @IBOutlet weak var btnCntrlLeft: UIButton!
+    @IBAction func btnCntrlForwardPressed(_ sender: Any) {
+
+    }
+    @IBAction func btnCntrlBackwardPressed(_ sender: Any) {
+    
+    }
     
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
