@@ -11,16 +11,20 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    var airpl : Airplane?
 
     @IBOutlet var sceneView: ARSCNView!
-    
     @IBAction func btnLeft(_ sender: UIButton) {
+        airpl?.moveLeft()
     }
     @IBAction func btnRight(_ sender: UIButton) {
+        airpl?.moveRight()
     }
     @IBAction func btnUp(_ sender: UIButton) {
+        airpl?.moveUp()
     }
     @IBAction func btnDown(_ sender: UIButton) {
+        airpl?.moveDown()
     }
     
     override func viewDidLoad() {
@@ -38,8 +42,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
 //        sceneView.scene = scene
         
-        let airpl = Airplane(sceneView, "starship.dae")
-        airpl.moveRight()
+        airpl = Airplane(sceneView, "starship.dae")
+//        airpl.moveRight()
         
 //        for node in sceneView.scene.rootNode.childNodes {
 //            let moveShip = SCNAction.moveBy(x: 0, y: 0.5, z: -0.5, duration: 1)

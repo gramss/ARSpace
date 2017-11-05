@@ -28,9 +28,10 @@ class Airplane{
         }
         sceneview.scene.rootNode.addChildNode(airplanenode)
     }
-    let animduration : Double = 1
-    let movedistance : CGFloat = 3
+    let animduration : Double = 0.25
+    let movedistance : CGFloat = 0.5
     func moveLeft(){
+        NSLog("MOVE LEFT")
         let moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
         let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
         let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
@@ -38,6 +39,7 @@ class Airplane{
         __myrunAction(routine)
     }
     func moveRight(){
+        NSLog("MOVE RIGHT")
         
         let moveShip = SCNAction.moveBy(x: movedistance, y: 0, z: 0, duration: animduration)
         let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
@@ -46,6 +48,8 @@ class Airplane{
         __myrunAction(routine)
     }
     func moveUp(){
+        NSLog("MOVE UP")
+        
         let moveShip = SCNAction.moveBy(x: 0, y: movedistance, z: 0, duration: animduration)
         let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
         let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
@@ -53,6 +57,8 @@ class Airplane{
         __myrunAction(routine)
     }
     func moveDown(){
+        NSLog("MOVE DOWN")
+        
         let moveShip = SCNAction.moveBy(x: 0, y: -movedistance, z: 0, duration: animduration)
         let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
         let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
