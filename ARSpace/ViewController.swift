@@ -57,7 +57,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func btnDown(_ sender: UIButton) {
         airpl?.moveDown()
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //controlView.isHidden = true
@@ -111,7 +110,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
-        renderer_Add(node: node, anchor: anchor)  //In RendererFunctions
+        renderer_Add(node: node, anchor: anchor, sceneView: sceneView)  //In RendererFunctions
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
