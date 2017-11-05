@@ -13,8 +13,8 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
     var airpl : Airplane?
 
-    @IBOutlet weak var ControlView: UIView!
-        @IBOutlet var sceneView: ARSCNView!
+    //@IBOutlet weak var ControlView: UIView!
+    @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     @IBAction func btnStart(_ sender: UIButton) {
