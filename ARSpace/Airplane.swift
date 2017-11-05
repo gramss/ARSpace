@@ -12,15 +12,11 @@ class Airplane{
     var airplanescene : SCNScene
     let airplanenode = SCNNode()        //Array of all nodes
     
-    init(_ sceneview: ARSCNView,_ name : String){
+    init(_ sceneview: ARSCNView,_ name : String,_ planenode: SCNNode){
         NSLog("Airplane created")
         //create Node here
         airplanescene = SCNScene(named: name)!
-//        cubeNode.position = SCNVector3(0, 0, -0.2) // SceneKit/AR coordinates are in meters
-//        sceneView.scene.rootNode.addChildNode(cubeNode)
-//        sceneview.scene = airplanescene
         
-//        airplanenode = airplanescene.rootNode     //OLD
         let nodeArray = airplanescene.rootNode.childNodes
 
         for childNode in nodeArray {
@@ -29,7 +25,6 @@ class Airplane{
         __scaleTo(0.25)          //Shrink the model
         __setPosition(0, 0, -1)    //Place the Airplane 0.5 meters ahead of you
         sceneview.scene.rootNode.addChildNode(airplanenode)
-//        airplanenode.removeFromParentNode()
     }
     let animduration : Double = 0.25
     let movedistance : CGFloat = 0.5
@@ -82,7 +77,7 @@ class Airplane{
             childNode.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
         }
     }
-    func __setPosition(_ x : Double,_ y : Double,_ z :Double){
+    func __setPosition(_ x : Float,_ y : Float,_ z :Float){
         let nodeArray = airplanenode.childNodes
         
         for childNode in nodeArray {

@@ -8,37 +8,19 @@
 
 import SceneKit
 import ARKit
-func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeNode : inout SCNNode) -> Bool {
+func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeNode : inout SCNNode, viewcontroller : ViewController) -> Bool {
     // Place content only for anchors found by plane detection.
     guard let planeAnchor = anchor as? ARPlaneAnchor else { return false}
-    print(planeNode)
+    //Plane Found
+    //Remove old Plane
     planeNode.removeFromParentNode()
     
         
     // Create a SceneKit plane to visualize the plane anchor using its position and extent.
-    var plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-    var material_plane = SCNMaterial()
-    plane.firstMaterial = material_plane
-    
+    let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
     planeNode = SCNNode(geometry: plane)
     planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-    //Create a cube for debug reason
-    let box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.5)
-    let material = SCNMaterial()
-    material.diffuse.contents = UIColor.green
-    box.firstMaterial = material
-    
-    let boxNode = SCNNode(geometry: box)
-    
-    let x = sceneView.session.currentFrame?.camera.transform.columns.1.x
-    let y = sceneView.session.currentFrame?.camera.transform.columns.1.y
-    let z = sceneView.session.currentFrame?.camera.transform.columns.1.z
-    
-    //Vergleiche hier einfügen um nächsten Punkt zu finden.
-    
-    boxNode.position = SCNVector3(x!, y!, z!)
-    print(sceneView.session.currentFrame?.camera.transform)
-     /*
+    /*
      `SCNPlane` is vertically oriented in its local coordinate space, so
      rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
      */
@@ -52,9 +34,11 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeN
      changes in the plane anchor as plane estimation continues.
      */
     node.addChildNode(planeNode)
-    material_plane.transparency = 1
-    node.addChildNode(boxNode)
-    //Activate Button and start next steps
+    
+    //Activate Button
+    viewcontroller.planeFound()
+    
+    
     return true
 }
 func renderer_Update(node: SCNNode, anchor: ARAnchor) -> Bool {

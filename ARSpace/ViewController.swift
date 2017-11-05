@@ -11,6 +11,20 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    @IBAction func testButton(_ sender: Any) {
+        asteroid = Asteroid(sceneView)
+        
+//        for node in (asteroid?.sceneView.scene.rootNode.childNodes)!{
+//            let moveRock = SCNAction.moveBy(x: 0, y: 0.5, z: 0, duration: 1)
+//            let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: 1)
+//            let fadeIn = SCNAction.fadeOpacity(to: 1, duration: 1)
+//            let routine = SCNAction.sequence([fadeOut, fadeIn, moveRock])
+//            let foreverRoutine = SCNAction.repeatForever(routine)
+//            //(asteroid?.sceneView.scene.rootNode.childNodes)!
+//            
+//            node.runAction(foreverRoutine)
+      //  }
+    }
     
     @IBAction func testButton(_ sender: Any) {
         asteroid = Asteroid(sceneView)
@@ -22,6 +36,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var startView: UIView!
     
+    @IBOutlet weak var btnCntrlRight: UIButton!
+    @IBOutlet weak var btnCntrlLeft: UIButton!
     
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
@@ -34,14 +50,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if !scanFinished{
             lblTextForStart.text = ""
             scanFinished = true
+            //Place Airplane
+            airpl = Airplane(sceneView, "starship.dae", planeNode)
+            //activate the two arrows
+            btnCntrlRight.isHidden = true
+            btnCntrlLeft.isHidden  = true
+            controlView.isHidden = false
+            
+            
         }else{
             startView.isHidden = true
-            controlView.isHidden = false
+            btnCntrlLeft.isHidden  = false
+            btnCntrlRight.isHidden = false
         }
     }
     func planeFound() {
-        btnStart.isHidden = false
-        lblTextForStart.text = "Press the butten to play"
+        DispatchQueue.main.async { // Correct
+            self.btnStart.isHidden = false
+            self.lblTextForStart.text = "Press the butten to play"
+        }
+
     }
     
     func notLookingAtPane() {
@@ -78,7 +106,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
 //        sceneView.scene = scene
         
-        airpl = Airplane(sceneView, "starship.dae")
+//        airpl = Airplane(sceneView, "starship.dae", sceneView)
 //        airpl.moveRight()
 //
 //        for node in sceneView.scene.rootNode.childNodes {
@@ -117,7 +145,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
-        if(renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode)){}
+        if(renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode, viewcontroller: self)){
+            
+        }
         //In RendererFunctions
     }
     
