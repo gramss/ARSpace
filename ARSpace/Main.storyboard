@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWw-eM-pn0">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-wc-odS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
@@ -70,20 +69,41 @@
                                     <constraint firstItem="Krx-3T-FMB" firstAttribute="centerX" secondItem="Cl3-2r-YnT" secondAttribute="centerX" id="ywD-kf-q2h"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-aP-dlK">
+                                <rect key="frame" x="68" y="232" width="240" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Zv-qgF">
+                                        <rect key="frame" x="83" y="65" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="icons8-start_filled"/>
+                                        <connections>
+                                            <action selector="btnStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Uhb-zV-Fzt"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please scan the enviorment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APt-ko-9TE">
+                                        <rect key="frame" x="15" y="36" width="211" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qbA-aP-dlK" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" constant="212" id="1Ke-Kr-g0T"/>
                             <constraint firstItem="3IW-CH-hkC" firstAttribute="centerX" secondItem="gPa-qA-TYg" secondAttribute="centerX" id="2oI-uy-rWW"/>
+                            <constraint firstItem="qbA-aP-dlK" firstAttribute="centerY" secondItem="gPa-qA-TYg" secondAttribute="centerY" id="8OP-cp-VBA"/>
                             <constraint firstItem="ZVO-nm-eBd" firstAttribute="bottom" secondItem="3IW-CH-hkC" secondAttribute="bottom" constant="20" id="Ezs-LF-NCH"/>
+                            <constraint firstItem="qbA-aP-dlK" firstAttribute="leading" secondItem="ZVO-nm-eBd" secondAttribute="leading" constant="68" id="VMd-TE-Ym8"/>
+                            <constraint firstItem="qbA-aP-dlK" firstAttribute="centerX" secondItem="gPa-qA-TYg" secondAttribute="centerX" id="W2c-Lo-Txa"/>
                             <constraint firstItem="3IW-CH-hkC" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" constant="470" id="ix2-zv-GEB"/>
                             <constraint firstItem="ZVO-nm-eBd" firstAttribute="bottom" secondItem="3IW-CH-hkC" secondAttribute="bottom" constant="20" id="ktd-I3-UpM"/>
                             <constraint firstItem="3IW-CH-hkC" firstAttribute="leading" secondItem="ZVO-nm-eBd" secondAttribute="leading" constant="78" id="y9K-Qn-PwT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZVO-nm-eBd"/>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="xWw-eM-pn0"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="Ezs-LF-NCH"/>
                                 <exclude reference="ktd-I3-UpM"/>
@@ -93,9 +113,6 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="xWw-eM-pn0"/>
-                            </mask>
                             <mask key="constraints">
                                 <include reference="Ezs-LF-NCH"/>
                                 <include reference="ktd-I3-UpM"/>
@@ -106,7 +123,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="xWw-eM-pn0" id="gH0-RN-gdJ"/>
+                        <outlet property="btnStart" destination="Cz8-Zv-qgF" id="3b5-wV-I9s"/>
+                        <outlet property="lblTextForStart" destination="APt-ko-9TE" id="1nF-fD-eVV"/>
+                        <outlet property="sceneView" destination="RXZ-wc-odS" id="VIP-ci-dFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -119,5 +138,6 @@
         <image name="icons8-chevron_left" width="75" height="75"/>
         <image name="icons8-chevron_right" width="75" height="75"/>
         <image name="icons8-chevron_up" width="75" height="75"/>
+        <image name="icons8-start_filled" width="75" height="75"/>
     </resources>
 </document>
