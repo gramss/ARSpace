@@ -23,7 +23,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //            //(asteroid?.sceneView.scene.rootNode.childNodes)!
 //            
 //            node.runAction(foreverRoutine)
-        }
+      //  }
     }
     var airpl : Airplane?
     var asteroid : Asteroid?
