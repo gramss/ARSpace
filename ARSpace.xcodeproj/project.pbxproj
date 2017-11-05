@@ -20,6 +20,7 @@
 		17E611221FAE813B0083CFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E611151FAE813A0083CFD3 /* Assets.xcassets */; };
 		17E611231FAE813B0083CFD3 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 17E611161FAE813A0083CFD3 /* Base.lproj */; };
 		17E611271FAE813B0083CFD3 /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6111A1FAE813B0083CFD3 /* ViewController+Actions.swift */; };
+		257DFDA71FAEA35600D0577D /* RendererFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DFDA61FAEA35600D0577D /* RendererFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		17E611151FAE813A0083CFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E611161FAE813A0083CFD3 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		17E6111A1FAE813B0083CFD3 /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
+		257DFDA61FAEA35600D0577D /* RendererFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				17E611101FAE81390083CFD3 /* Airplane.swift */,
 				17E611121FAE813A0083CFD3 /* ViewController.swift */,
+				257DFDA61FAEA35600D0577D /* RendererFunctions.swift */,
 				17E611141FAE813A0083CFD3 /* AppDelegate.swift */,
 				1792D02B1FAE857100332F51 /* LaunchScreen.storyboard */,
 				1792D0311FAE866A00332F51 /* Main.storyboard */,
@@ -286,6 +289,7 @@
 				17E6111F1FAE813B0083CFD3 /* ViewController.swift in Sources */,
 				17E611271FAE813B0083CFD3 /* ViewController+Actions.swift in Sources */,
 				17E6111D1FAE813B0083CFD3 /* Airplane.swift in Sources */,
+				257DFDA71FAEA35600D0577D /* RendererFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
