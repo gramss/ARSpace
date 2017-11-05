@@ -24,21 +24,24 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor) -> Bool {
     planeNode.eulerAngles.x = -.pi / 2
     
     // Make the plane visualization semitransparent to clearly show real-world placement.
-    planeNode.opacity = 0.25
+    planeNode.opacity = 0.5
     
     /*
      Add the plane visualization to the ARKit-managed node so that it tracks
      changes in the plane anchor as plane estimation continues.
      */
     node.addChildNode(planeNode)
+    //Activate Button and start next steps
     return true
 }
 func renderer_Update(node: SCNNode, anchor: ARAnchor) -> Bool {
     // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
+    
     guard let planeAnchor = anchor as?  ARPlaneAnchor,
         let planeNode = node.childNodes.first,
         let plane = planeNode.geometry as? SCNPlane
-        else { return false}
+        else { NSLog("exited from Update"); return false}
+
     
     // Plane estimation may shift the center of a plane relative to its anchor's transform.
     planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
