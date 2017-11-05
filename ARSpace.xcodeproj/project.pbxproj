@@ -19,7 +19,6 @@
 		17E611201FAE813B0083CFD3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E611131FAE813A0083CFD3 /* art.scnassets */; };
 		17E611211FAE813B0083CFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611141FAE813A0083CFD3 /* AppDelegate.swift */; };
 		17E611231FAE813B0083CFD3 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 17E611161FAE813A0083CFD3 /* Base.lproj */; };
-		17E611271FAE813B0083CFD3 /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6111A1FAE813B0083CFD3 /* ViewController+Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		17E611131FAE813A0083CFD3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		17E611141FAE813A0083CFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17E611161FAE813A0083CFD3 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
-		17E6111A1FAE813B0083CFD3 /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +117,6 @@
 				17E611161FAE813A0083CFD3 /* Base.lproj */,
 				17E6110E1FAE81390083CFD3 /* Info.plist */,
 				17E611111FAE813A0083CFD3 /* starship.dae */,
-				17E6111A1FAE813B0083CFD3 /* ViewController+Actions.swift */,
 				17E6110D1FAE81380083CFD3 /* ARSpace-Bridging-Header.h */,
 			);
 			path = ARSpace;
@@ -284,7 +281,6 @@
 			files = (
 				17E611211FAE813B0083CFD3 /* AppDelegate.swift in Sources */,
 				17E6111F1FAE813B0083CFD3 /* ViewController.swift in Sources */,
-				17E611271FAE813B0083CFD3 /* ViewController+Actions.swift in Sources */,
 				17E6111D1FAE813B0083CFD3 /* Airplane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

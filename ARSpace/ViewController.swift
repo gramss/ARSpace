@@ -14,17 +14,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var airpl : Airplane?
 
     @IBOutlet weak var ControlView: UIView!
-    
+        @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     @IBAction func btnStart(_ sender: UIButton) {
-        
-        sceneView.showsStatistics = false // turn of point cloud when pane is found
+
+        //sceneView.showsStatistics = false // turn of point cloud when pane is found
         // turn on visible pane?
         btnStart.isHidden = true
     }
     
-    @IBOutlet var sceneView: ARSCNView!
+
     @IBAction func btnLeft(_ sender: UIButton) {
         airpl?.moveLeft()
     }
@@ -45,7 +45,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
         
         // Create a new scene
 //        let scene = SCNScene(named: "art.scnassets/ship.scn")!
