@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1792D02D1FAE857100332F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1792D02B1FAE857100332F51 /* LaunchScreen.storyboard */; };
 		1792D0321FAE866A00332F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1792D0311FAE866A00332F51 /* Main.storyboard */; };
+		1792D0341FAEA10700332F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1792D0331FAEA10700332F51 /* Assets.xcassets */; };
 		17E610F51FAE80FA0083CFD3 /* ARSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610F41FAE80FA0083CFD3 /* ARSpaceTests.swift */; };
 		17E611001FAE80FA0083CFD3 /* ARSpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610FF1FAE80FA0083CFD3 /* ARSpaceUITests.swift */; };
 		17E6111B1FAE813B0083CFD3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17E6110E1FAE81390083CFD3 /* Info.plist */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		1792D02B1FAE857100332F51 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1792D0311FAE866A00332F51 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1792D0331FAEA10700332F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E610DA1FAE80FA0083CFD3 /* ARSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E610F01FAE80FA0083CFD3 /* ARSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E610F41FAE80FA0083CFD3 /* ARSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSpaceTests.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				17E611141FAE813A0083CFD3 /* AppDelegate.swift */,
 				1792D02B1FAE857100332F51 /* LaunchScreen.storyboard */,
 				1792D0311FAE866A00332F51 /* Main.storyboard */,
+				1792D0331FAEA10700332F51 /* Assets.xcassets */,
 				17E611131FAE813A0083CFD3 /* art.scnassets */,
 				17E611161FAE813A0083CFD3 /* Base.lproj */,
 				17E6110E1FAE81390083CFD3 /* Info.plist */,
@@ -252,6 +255,7 @@
 				1792D02D1FAE857100332F51 /* LaunchScreen.storyboard in Resources */,
 				17E611201FAE813B0083CFD3 /* art.scnassets in Resources */,
 				17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */,
+				1792D0341FAEA10700332F51 /* Assets.xcassets in Resources */,
 				17E611231FAE813B0083CFD3 /* Base.lproj in Resources */,
 				1792D0321FAE866A00332F51 /* Main.storyboard in Resources */,
 			);
