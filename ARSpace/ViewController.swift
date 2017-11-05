@@ -11,6 +11,8 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    
+    var planeNode : SCNNode = SCNNode()
     var airpl : Airplane?
     var scanFinished = false
     
@@ -110,11 +112,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
-        renderer_Add(node: node, anchor: anchor, sceneView: sceneView)  //In RendererFunctions
+        if(renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode)){}
+        //In RendererFunctions
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        print("update");
+//        print("update");
         renderer_Update(node: node, anchor: anchor)
     }
 }
