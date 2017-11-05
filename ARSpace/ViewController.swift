@@ -12,6 +12,9 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
+    @IBAction func testButton(_ sender: Any) {
+        asteroid = Asteroid(sceneView)
+    }
     var planeNode : SCNNode = SCNNode()
     var airpl : Airplane?
     var asteroid : Asteroid?

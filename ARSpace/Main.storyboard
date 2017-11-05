@@ -100,7 +100,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="testButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Fyj-zd-sc7"/>
+                                    <action selector="testButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="z39-Yb-hfA"/>
                                 </connections>
                             </button>
                         </subviews>

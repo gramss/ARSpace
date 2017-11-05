@@ -33,8 +33,17 @@ class Asteroid{
         
         asteroidnode = SCNNode(geometry: box)
         asteroidnode?.physicsBody = SCNPhysicsBody(type: SCNPhysicsBodyType.dynamic, shape: nil)
-        asteroidnode?.physicsBody?.mass = 2;
+        asteroidnode?.physicsBody?.mass = 1;
         
+//        let vel = asteroidnode?.physicsField?.direction
+//        NSLog("Volcity.y = \(vel?.y) Volcity.x = \(vel?.x) Volcity.z = \(vel?.z))")
+//        asteroidnode?.physicsBody?.velocity.y = 0
+//        asteroidnode?.physicsBody?.velocity.x = 0.98
+//
+//        asteroidnode?.physicsField? = 0
+//        asteroidnode?.physicsField?.direction.z = -1
+        let forceVector = SCNVector3(0, 0, -9)
+        asteroidnode?.physicsBody?.applyForce(forceVector, asImpulse: true)
         let cc = getCameraCoordinates(sceneView: sceneView)
         
         let cX = randomFloat(min: (cc?.x)!-0.1, max: (cc?.x)!+0.1)
