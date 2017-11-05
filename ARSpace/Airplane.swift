@@ -63,6 +63,24 @@ class Airplane{
         let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
         __myrunAction(routine)
     }
+    func moveForward(){
+        NSLog("MOVE FORWARD")
+        
+        let moveShip = SCNAction.moveBy(x: 0, y: 0, z: -movedistance , duration: animduration)
+        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
+        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
+        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        __myrunAction(routine)
+    }
+    func moveBackward(){
+        NSLog("MOVE BACKWARD")
+        
+        let moveShip = SCNAction.moveBy(x: 0, y: 0, z: movedistance, duration: animduration)
+        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
+        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
+        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        __myrunAction(routine)
+    }
     func __myrunAction(_ routine: SCNAction){
         let nodeArray = airplanenode.childNodes
         
