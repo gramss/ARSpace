@@ -32,6 +32,9 @@ class Asteroid{
         box.firstMaterial = material
         
         asteroidnode = SCNNode(geometry: box)
+        asteroidnode?.physicsBody = SCNPhysicsBody(type: SCNPhysicsBodyType.dynamic, shape: nil)
+        asteroidnode?.physicsBody?.mass = 2;
+        
         let cc = getCameraCoordinates(sceneView: sceneView)
         
         let cX = randomFloat(min: (cc?.x)!-0.1, max: (cc?.x)!+0.1)
