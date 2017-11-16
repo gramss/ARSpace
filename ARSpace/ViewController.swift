@@ -139,6 +139,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
         if(renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode, viewcontroller: self)){
@@ -150,5 +152,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
 //        print("update");
         renderer_Update(node: node, anchor: anchor)
+    }
+}
+
+//Errorhandling - Fehlerausgabe bei fehlendem Camera access oder bei Interrupt und Ende
+extension ViewController: ARSKViewDelegate {
+    func session(_ session: ARSession,
+                 didFailWithError error: Error) {
+        print("Session Failed - probably due to lack of camera access")
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        print("Session interrupted")
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        print("Session resumed")
+        sceneView.session.run(session.configuration!,
+                              options: [.resetTracking,
+                                        .removeExistingAnchors])
     }
 }
