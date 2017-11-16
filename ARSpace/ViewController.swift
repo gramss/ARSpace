@@ -14,9 +14,6 @@ var g_curr_Game_State = 0
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    @IBAction func shootButton(_ sender: Any) {
-        asteroid = Asteroid(sceneView)
-    }
     var planeNode : SCNNode = SCNNode()
     var airpl : Airplane?
     var asteroid : Asteroid?
@@ -43,6 +40,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //sceneView.showsStatistics = false // turn of point cloud when pane is found
         // turn on visible pane?
         if !scanFinished{
+            g_curr_Game_State = 1;
             lblTextForStart.text = ""
             scanFinished = true
             //Place Airplane
@@ -54,6 +52,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             
         }else{
+            g_curr_Game_State = 2;
             startView.isHidden = true
             btnCntrlLeft.isHidden  = false
             btnCntrlRight.isHidden = false
