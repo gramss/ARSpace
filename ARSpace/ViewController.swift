@@ -30,7 +30,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         airpl?.moveBackward()
     }
     
-    @IBOutlet weak var btnShoot: UIButton!
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
@@ -56,7 +55,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             startView.isHidden = true
             btnCntrlLeft.isHidden  = false
             btnCntrlRight.isHidden = false
-            btnShoot.isHidden = false
         }
     }
     func planeFound() {
@@ -91,6 +89,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
+        
+        //Featurepoints anzeigen
+        sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
         
         // Show statistics such as fps and timing information
         //sceneView.showsStatistics = true
