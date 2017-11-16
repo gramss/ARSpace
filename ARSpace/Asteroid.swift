@@ -11,88 +11,56 @@ import SceneKit
 import UIKit
 
 class Asteroid{
-    
-    struct myCameraCoordinates {
-        var x = Float()
-        var y = Float()
-        var z = Float()
-    }
-    
-    //var asteroidscene : SCNScene
     var asteroidnode: SCNNode?
     var sceneView : ARSCNView
-    
+    var startPoint : SCNVector3
+    var endPoint : SCNVector3
+    var animationTime : Double
+    let fadeOutTime : Double = 0.72
     
     func createAsteroid(){
         
         
         let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0.5)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
+        material.diffuse.contents = UIColor.init(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: randomCGFloat())
         box.firstMaterial = material
         
         asteroidnode = SCNNode(geometry: box)
-        asteroidnode?.physicsBody = SCNPhysicsBody(type: SCNPhysicsBodyType.dynamic, shape: nil)
-        asteroidnode?.physicsBody?.mass = 1;
+
+        asteroidnode!.position = startPoint
         
-//        let vel = asteroidnode?.physicsField?.direction
-//        NSLog("Volcity.y = \(vel?.y) Volcity.x = \(vel?.x) Volcity.z = \(vel?.z))")
-//        asteroidnode?.physicsBody?.velocity.y = 0
-//        asteroidnode?.physicsBody?.velocity.x = 0.98
-//
-//        asteroidnode?.physicsField? = 0
-//        asteroidnode?.physicsField?.direction.z = -1
-        let forceVector = SCNVector3(0, 0, -9)
-        
-        
-        asteroidnode?.physicsBody?.applyForce(forceVector, asImpulse: true)
-        let cc = getCameraCoordinates(sceneView: sceneView)
-        
-        let cX = randomFloat(min: (cc?.x)!-0.1, max: (cc?.x)!+0.1)
-        let cY = randomFloat(min: (cc?.y)!-0.1, max: (cc?.y)!+0.1)
-        let cZ = randomFloat(min: (cc?.z)!-0.1, max: (cc?.z)!+0.1)
-        asteroidnode!.position = SCNVector3(cX!, cY!, cZ!)
+        let moveShip = SCNAction.move(to: endPoint, duration: animationTime)
+        let fadeOut = SCNAction.fadeOut(duration: fadeOutTime)
+        let routine = SCNAction.sequence([moveShip, fadeOut])
+        __myrunAction(routine)
         
         sceneView.scene.rootNode.addChildNode(asteroidnode!)
         
     }
     
-    func randomFloat(min: Float, max: Float) -> Float? {
-        return (Float(arc4random()) / 0xFFFFFFFF) * (max - min) + min
+    func randomCGFloat() -> CGFloat {
+        let min : CGFloat = 0
+        let max : CGFloat = 1
+        return (CGFloat(arc4random()) / 0xFFFFFFFF) * (max - min) + min
     }
     
-    
-    func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates? {
-        let cameraTransform = sceneView.session.currentFrame?.camera.transform
-        let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-        
-        var cc = myCameraCoordinates()
-        cc.x = cameraCoordinates.translation.x
-        cc.y = cameraCoordinates.translation.y
-        cc.z = cameraCoordinates.translation.z
-        
-        return cc
-    }
-    
-    init(_ sceneViewInit: ARSCNView){
+    init(_ sceneViewInit: ARSCNView, _ startPoint: SCNVector3, _ endPoint: SCNVector3, _ animationTime : Double){
         NSLog("Asteroid created")
         sceneView = sceneViewInit
-        //asteroidscene = SCNScene(named: name)!
-        //        cubeNode.position = SCNVector3(0, 0, -0.2) // SceneKit/AR coordinates are in meters
-        //        sceneView.scene.rootNode.addChildNode(cubeNode)
-        //        sceneview.scene = airplanescene
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.animationTime = animationTime
         
-        //        airplanenode = airplanescene.rootNode     //OLD
-//        let nodeArray = asteroidscene.rootNode.childNodes
-//
-//        for childNode in nodeArray {
-//            asteroidnode.addChildNode(childNode as SCNNode)
-//        }
-//
-//        sceneView.scene.rootNode.addChildNode(asteroidnode)
         self.createAsteroid()
         }
     
-    
+    func __myrunAction(_ routine: SCNAction){
+        let nodeArray = asteroidnode?.childNodes
+        
+        for childNode in nodeArray! {
+            childNode.runAction(routine)
+        }
+    }
 }
 
