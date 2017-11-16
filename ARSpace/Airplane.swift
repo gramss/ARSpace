@@ -31,54 +31,42 @@ class Airplane{
     func moveLeft(){
         NSLog("MOVE LEFT")
         let moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func moveRight(){
         NSLog("MOVE RIGHT")
         
         let moveShip = SCNAction.moveBy(x: movedistance, y: 0, z: 0, duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func moveUp(){
         NSLog("MOVE UP")
         
         let moveShip = SCNAction.moveBy(x: 0, y: movedistance, z: 0, duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func moveDown(){
         NSLog("MOVE DOWN")
         
         let moveShip = SCNAction.moveBy(x: 0, y: -movedistance, z: 0, duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func moveForward(){
         NSLog("MOVE FORWARD")
         
         let moveShip = SCNAction.moveBy(x: 0, y: 0, z: -movedistance , duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func moveBackward(){
         NSLog("MOVE BACKWARD")
         
         let moveShip = SCNAction.moveBy(x: 0, y: 0, z: movedistance, duration: animduration)
-        let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: animduration)
-        let fadeIn = SCNAction.fadeOpacity(to: 1, duration: animduration)
-        let routine = SCNAction.sequence([fadeOut, fadeIn, moveShip])
+        let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
     func __myrunAction(_ routine: SCNAction){
