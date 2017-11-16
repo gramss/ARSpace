@@ -30,7 +30,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         airpl?.moveBackward()
     }
     
-    @IBOutlet weak var btnShoot: UIButton!
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
@@ -56,7 +55,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             startView.isHidden = true
             btnCntrlLeft.isHidden  = false
             btnCntrlRight.isHidden = false
-            btnShoot.isHidden = false
         }
     }
     func planeFound() {
