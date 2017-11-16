@@ -31,23 +31,23 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeN
         planeNode.opacity = 0.5
         
         //TEST
-        var cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
-        var testnode = SCNNode(geometry: cube)
-        var x = planeAnchor.center.x
-        if (abs(x - planeAnchor.extent.x/2) < abs( x + planeAnchor.extent.x/2)){
-            x =  x - planeAnchor.extent.x/2
-        }
-        else{
-            x =  x + planeAnchor.extent.x/2
-        }
-        testnode.simdPosition = float3(x, 0, planeAnchor.center.z)
+//        var cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+//        var testnode = SCNNode(geometry: cube)
+//        var x = planeAnchor.center.x
+//        if (abs(x - planeAnchor.extent.x/2) < abs( x + planeAnchor.extent.x/2)){
+//            x =  x - planeAnchor.extent.x/2
+//        }
+//        else{
+//            x =  x + planeAnchor.extent.x/2
+//        }
+//        testnode.simdPosition = float3(x, 0, planeAnchor.center.z)
         
         /*
          Add the plane visualization to the ARKit-managed node so that it tracks
          changes in the plane anchor as plane estimation continues.
          */
         node.addChildNode(planeNode)
-        node.addChildNode(testnode)
+//        node.addChildNode(testnode)
         
         //Activate Button
         viewcontroller.planeFound()
