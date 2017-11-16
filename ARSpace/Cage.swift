@@ -14,7 +14,14 @@ class Cage {
     
     init(_ planeNode : SCNVector3, _ airplaneHeigth : SCNVector3, _ length : CGFloat, _ width : CGFloat, _ height : CGFloat) {
         anchorNode = planeNode
-        
+        //CURRENTLY HERE!
+        var x_center = planeNode.x
+        if(width > height){
+//            edges[0] = SCNVector3(
+        }
+        else{
+            
+        }
         
         
         
