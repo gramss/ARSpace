@@ -9,13 +9,14 @@
 import SceneKit
 import ARKit
 func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeNode : inout SCNNode, viewcontroller : ViewController) -> Bool {
+    if g_curr_Game_State == 0 {
     // Place content only for anchors found by plane detection.
     guard let planeAnchor = anchor as? ARPlaneAnchor else { return false}
     //Plane Found
     //Remove old Plane
     planeNode.removeFromParentNode()
     
-    if g_curr_Game_State == 0 {
+
         // Create a SceneKit plane to visualize the plane anchor using its position and extent.
         let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         planeNode = SCNNode(geometry: plane)
@@ -43,6 +44,7 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeN
     return true
 }
 func renderer_Update(node: SCNNode, anchor: ARAnchor) -> Bool {
+    if g_curr_Game_State == 0 {
     // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
     
     guard let planeAnchor = anchor as?  ARPlaneAnchor,
@@ -62,5 +64,7 @@ func renderer_Update(node: SCNNode, anchor: ARAnchor) -> Bool {
      */
     plane.width = CGFloat(planeAnchor.extent.x)
     plane.height = CGFloat(planeAnchor.extent.z)
+        
+    }
     return true
 }
