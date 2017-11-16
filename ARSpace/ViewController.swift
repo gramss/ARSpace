@@ -10,6 +10,8 @@ import UIKit
 import SceneKit
 import ARKit
 
+var g_curr_Game_State = 0
+
 class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func shootButton(_ sender: Any) {

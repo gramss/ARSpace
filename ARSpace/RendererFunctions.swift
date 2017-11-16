@@ -15,28 +15,29 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeN
     //Remove old Plane
     planeNode.removeFromParentNode()
     
+    if g_curr_Game_State == 0 {
+        // Create a SceneKit plane to visualize the plane anchor using its position and extent.
+        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+        planeNode = SCNNode(geometry: plane)
+        planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
+        /*
+         `SCNPlane` is vertically oriented in its local coordinate space, so
+         rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
+         */
+        planeNode.eulerAngles.x = -.pi / 2
         
-    // Create a SceneKit plane to visualize the plane anchor using its position and extent.
-    let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-    planeNode = SCNNode(geometry: plane)
-    planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-    /*
-     `SCNPlane` is vertically oriented in its local coordinate space, so
-     rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
-     */
-    planeNode.eulerAngles.x = -.pi / 2
-    
-    // Make the plane visualization semitransparent to clearly show real-world placement.
-    planeNode.opacity = 0.5
-    
-    /*
-     Add the plane visualization to the ARKit-managed node so that it tracks
-     changes in the plane anchor as plane estimation continues.
-     */
-    node.addChildNode(planeNode)
-    
-    //Activate Button
-    viewcontroller.planeFound()
+        // Make the plane visualization semitransparent to clearly show real-world placement.
+        planeNode.opacity = 0.5
+        
+        /*
+         Add the plane visualization to the ARKit-managed node so that it tracks
+         changes in the plane anchor as plane estimation continues.
+         */
+        node.addChildNode(planeNode)
+        
+        //Activate Button
+        viewcontroller.planeFound()
+    }
     
     
     return true
