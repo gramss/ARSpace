@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-CH-hkC">
-                                <rect key="frame" x="16" y="490" width="343" height="157"/>
+                                <rect key="frame" x="16" y="490" width="347" height="157"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-2r-YnT">
-                                        <rect key="frame" x="134" y="90" width="75" height="75"/>
+                                        <rect key="frame" x="134" y="90" width="79" height="75"/>
                                         <state key="normal" image="icons8-chevron_down"/>
                                         <connections>
                                             <action selector="btnDown:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6B8-Qu-BUU"/>
@@ -50,7 +50,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-3T-FMB">
-                                        <rect key="frame" x="136" y="-7" width="71" height="75"/>
+                                        <rect key="frame" x="136" y="-7" width="75" height="75"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <state key="normal" image="icons8-chevron_up"/>
                                         <connections>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y57-3q-fZx">
-                                        <rect key="frame" x="251" y="41" width="75" height="75"/>
+                                        <rect key="frame" x="255" y="41" width="75" height="75"/>
                                         <state key="normal" image="icons8-chevron_hashtag"/>
                                         <connections>
                                             <action selector="btnCntrlBackwardPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xrk-1P-BJa"/>
@@ -91,17 +91,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-aP-dlK">
-                                <rect key="frame" x="68" y="232" width="239" height="203"/>
+                                <rect key="frame" x="68" y="232" width="243" height="203"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Zv-qgF">
-                                        <rect key="frame" x="82" y="65" width="75" height="75"/>
+                                        <rect key="frame" x="84" y="65" width="75" height="75"/>
                                         <state key="normal" image="icons8-start_filled"/>
                                         <connections>
                                             <action selector="btnStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Uhb-zV-Fzt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the environment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APt-ko-9TE">
-                                        <rect key="frame" x="8" y="36" width="223" height="21"/>
+                                        <rect key="frame" x="8" y="36" width="227" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -115,13 +115,6 @@
                                     <constraint firstItem="APt-ko-9TE" firstAttribute="top" secondItem="qbA-aP-dlK" secondAttribute="top" constant="36" id="thU-gI-Ctj"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXJ-cs-4x1">
-                                <rect key="frame" x="150" y="421" width="75" height="75"/>
-                                <state key="normal" image="icons8-center_direction"/>
-                                <connections>
-                                    <action selector="shootButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="uIw-r2-vuN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -132,10 +125,7 @@
                             <constraint firstItem="qbA-aP-dlK" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" id="WnC-va-TbU"/>
                             <constraint firstItem="3IW-CH-hkC" firstAttribute="top" secondItem="qbA-aP-dlK" secondAttribute="bottom" constant="55" id="ZiE-vz-bWr"/>
                             <constraint firstItem="RXZ-wc-odS" firstAttribute="top" secondItem="gPa-qA-TYg" secondAttribute="top" id="aaz-4O-JXY"/>
-                            <constraint firstItem="gXJ-cs-4x1" firstAttribute="centerX" secondItem="qbA-aP-dlK" secondAttribute="centerX" id="dOH-RN-Gvp"/>
-                            <constraint firstItem="gXJ-cs-4x1" firstAttribute="top" secondItem="ZVO-nm-eBd" secondAttribute="top" constant="401" id="kD3-CN-o1k"/>
                             <constraint firstItem="qbA-aP-dlK" firstAttribute="leading" secondItem="ZVO-nm-eBd" secondAttribute="leading" constant="68" id="kPn-Ns-M2D"/>
-                            <constraint firstItem="RXZ-wc-odS" firstAttribute="centerX" secondItem="gXJ-cs-4x1" secondAttribute="centerX" id="nOg-8N-a8g"/>
                             <constraint firstItem="RXZ-wc-odS" firstAttribute="centerY" secondItem="qbA-aP-dlK" secondAttribute="centerY" id="p75-9F-cUN"/>
                             <constraint firstAttribute="trailing" secondItem="RXZ-wc-odS" secondAttribute="trailing" id="wny-2x-GKq"/>
                         </constraints>
@@ -145,7 +135,6 @@
                         <outlet property="ControlView" destination="3IW-CH-hkC" id="8KQ-uJ-Fcw"/>
                         <outlet property="btnCntrlLeft" destination="knJ-wh-TGW" id="q8n-J5-Eor"/>
                         <outlet property="btnCntrlRight" destination="odc-gB-qrX" id="YUJ-o8-A7d"/>
-                        <outlet property="btnShoot" destination="gXJ-cs-4x1" id="Lvp-7G-DQC"/>
                         <outlet property="btnStart" destination="Cz8-Zv-qgF" id="3b5-wV-I9s"/>
                         <outlet property="controlView" destination="3IW-CH-hkC" id="36d-bt-SY7"/>
                         <outlet property="lblTextForStart" destination="APt-ko-9TE" id="1nF-fD-eVV"/>
@@ -159,7 +148,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-center_direction" width="75" height="75"/>
         <image name="icons8-chevron" width="75" height="75"/>
         <image name="icons8-chevron_down" width="75" height="75"/>
         <image name="icons8-chevron_hashtag" width="75" height="75"/>
