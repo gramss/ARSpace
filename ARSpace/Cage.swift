@@ -17,7 +17,7 @@ class Cage {
     init(_ planeNode : SCNNode, _ airplaneHeigth : Float,_ cageHeight : Float, _ node : SCNNode){
         centerPos = planeNode.position //Let's see if this works
         let centerX = centerPos.x
-        let centerY = centerPos.y
+        let centerY = centerPos.z
 //        let centerZ = centerPos.z
         NSLog("centerPos: %d %d %d", centerPos.x, centerPos.y, centerPos.z)
         
@@ -29,22 +29,25 @@ class Cage {
         if(length > width || true){
 //            edges[0] = SCNVector3(
             NSLog("Length > Width")
-            edges.append(SCNVector3Make(centerX - width/2, centerY - length/2, airplaneHeigth))
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
             generateCube(vector: edges[0], color: UIColor.red, node: node)
-            edges.append(SCNVector3Make(centerX + width/2, centerY - length/2, airplaneHeigth))
+            
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY - length/2))
             generateCube(vector: edges[1], color: UIColor.blue, node: node)
-            edges.append(SCNVector3Make(centerX - width/2, centerY + length/2, airplaneHeigth))
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY + length/2))
             generateCube(vector: edges[2], color: UIColor.green, node: node)
-            edges.append(SCNVector3Make(centerX + width/2, centerY + length/2, airplaneHeigth))
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY + length/2))
             generateCube(vector: edges[3], color: UIColor.yellow, node: node)
-            edges.append(SCNVector3Make(centerX - width/2, centerY - length/2, airplaneHeigth + cageHeight))
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY - length/2))
             generateCube(vector: edges[4], color: UIColor.black, node: node)
-            edges.append(SCNVector3Make(centerX + width/2, centerY - length/2, airplaneHeigth + cageHeight))
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY - length/2))
             generateCube(vector: edges[5], color: UIColor.purple, node: node)
-            edges.append(SCNVector3Make(centerX - width/2, centerY + length/2, airplaneHeigth + cageHeight))
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY + length/2))
             generateCube(vector: edges[6], color: UIColor.orange, node: node)
-            edges.append(SCNVector3Make(centerX + width/2, centerY + length/2, airplaneHeigth + cageHeight))
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
             generateCube(vector: edges[7], color: UIColor.magenta, node: node)
+            
+            generateCube(vector: SCNVector3(centerX,centerY,airplaneHeigth), color: UIColor.brown, node: node)
             NSLog("Edges length: %d", edges.count)
         }
         else{
