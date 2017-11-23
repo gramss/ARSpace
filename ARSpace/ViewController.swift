@@ -85,6 +85,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func btnDown(_ sender: UIButton) {
         airpl?.moveDown()
     }
+    @IBOutlet weak var outletFeaturePoints: UISwitch!
+    @IBAction func btnFeaturePoints(_ sender: UISwitch) {
+        if(outletFeaturePoints.isOn)
+        {
+            sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
+        }
+        if(!outletFeaturePoints.isOn)
+        {
+            sceneView.debugOptions = []
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //controlView.isHidden = true
