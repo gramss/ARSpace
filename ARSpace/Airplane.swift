@@ -22,8 +22,8 @@ class Airplane{
         for childNode in nodeArray {
             airplanenode.addChildNode(childNode as SCNNode)
         }
-        __scaleTo(0.25)          //Shrink the model
-        __setPosition(0, 0, -1)    //Place the Airplane 0.5 meters ahead of you
+        __scaleTo(0.10)          //Shrink the model
+        __setPosition(0, -0.1, -1)    //Place the Airplane 0.5 meters ahead of you
         sceneview.scene.rootNode.addChildNode(airplanenode)
     }
     let animduration : Double = 0.25

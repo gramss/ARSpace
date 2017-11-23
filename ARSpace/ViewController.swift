@@ -87,6 +87,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func btnDown(_ sender: UIButton) {
         airpl?.moveDown()
     }
+    
     @IBOutlet weak var outletFeaturePoints: UISwitch!
     @IBAction func btnFeaturePoints(_ sender: UISwitch) {
         if(outletFeaturePoints.isOn)
