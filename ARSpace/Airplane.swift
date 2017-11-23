@@ -90,4 +90,10 @@ class Airplane{
             childNode.position = SCNVector3(x, y, z)
         }
     }
+    func __setPositionVector(newPos : SCNVector3) {
+        let nodeArray = airplanenode.childNodes
+        for childNode in nodeArray {
+            childNode.position = newPos
+        }
+    }
 }

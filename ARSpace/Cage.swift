@@ -92,9 +92,19 @@ class Cage {
     }
     func getSpawnPointAirplane() -> SCNVector3 {
         var spawnPoint = SCNVector3()
-        spawnPoint.x = (edges[0].x - edges[1].x)/2 + edges[0].x
-        spawnPoint.y = (edges[0].y - edges[1].y)/2 + edges[0].y
-        spawnPoint.z = (edges[0].z - edges[1].z)/2 + edges[0].z
+//        spawnPoint.y = edges[0].y
+        spawnPoint = edges[0]
+//        if width > length {
+//            spawnPoint.x = (edges[0].x - edges[1].x)/2 + edges[0].x
+//
+//            spawnPoint.z = edges[0].z
+//        }
+//        else{
+//            spawnPoint.x = edges[0].x
+//
+//            spawnPoint.z = (edges[0].z - edges[1].z)/2 + edges[0].z
+//        }
+        
         return spawnPoint
     }
     

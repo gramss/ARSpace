@@ -46,6 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
             airpl = Airplane(sceneView, "starship.dae", planeNode)
+            airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
             
             //activate the two arrows
             btnCntrlRight.isHidden = true
