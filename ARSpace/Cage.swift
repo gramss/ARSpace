@@ -26,35 +26,66 @@ class Cage {
         width = Float(planeGeometry.width)
         length = Float(planeGeometry.height)       //The plane is rotated by 90° so it's height is really it's length
         //CURRENTLY HERE!
-        if(length > width || true){
+        if(length > width ){
 //            edges[0] = SCNVector3(
             NSLog("Length > Width")
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
-            generateCube(vector: edges[0], color: UIColor.red, node: node)
-            
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY - length/2))
-            generateCube(vector: edges[1], color: UIColor.blue, node: node)
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY + length/2))
-            generateCube(vector: edges[2], color: UIColor.green, node: node)
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY + length/2))
-            generateCube(vector: edges[3], color: UIColor.yellow, node: node)
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY - length/2))
-            generateCube(vector: edges[4], color: UIColor.black, node: node)
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY - length/2))
-            generateCube(vector: edges[5], color: UIColor.purple, node: node)
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY + length/2))
-            generateCube(vector: edges[6], color: UIColor.orange, node: node)
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
-            generateCube(vector: edges[7], color: UIColor.magenta, node: node)
             
-            generateCube(vector: SCNVector3(centerX,centerY,airplaneHeigth), color: UIColor.brown, node: node)
             NSLog("Edges length: %d", edges.count)
         }
         else{
-            
             NSLog("Width > Length")
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY + length/2))
+            
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY + length/2))
+            
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY - length/2))
+            
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY + length/2))
+            
+            edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY - length/2))
+            
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
+            
+            edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY - length/2))
+            
+            
+        }
+        //Correct edges[1] and [2]
+        let distance01 = getDistance(vector1: edges[0], vector2: edges[1])
+        let distance02 = getDistance(vector1: edges[0], vector2: edges[2])
+        if distance01 > distance02 {
+            NSLog("Alles richtig")
+        }
+        else{   //distance02 > distance01
+            NSLog("Edge 1 ist zu weit weg")
+            //Change edges 1 & 2
+            var tempVector = edges[2]
+            edges[2] = edges[1]
+            edges[1] = tempVector
+            //Change in upper layer too
+            tempVector = edges[6]
+            edges[6] = edges[5]
+            edges[5] = tempVector
         }
         
+        
+        generateCube(vector: edges[0], color: UIColor.red, node: node)
+        generateCube(vector: edges[1], color: UIColor.blue, node: node)
+        generateCube(vector: edges[2], color: UIColor.green, node: node)
+        generateCube(vector: edges[3], color: UIColor.yellow, node: node)
+        generateCube(vector: edges[4], color: UIColor.black, node: node)
+        generateCube(vector: edges[5], color: UIColor.purple, node: node)
+        generateCube(vector: edges[6], color: UIColor.orange, node: node)
+        generateCube(vector: edges[7], color: UIColor.magenta, node: node)
         
         
     }
@@ -80,6 +111,9 @@ class Cage {
         
         testnode.simdPosition = float3(vector.x, vector.y, vector.z)
         node.addChildNode(testnode)
+    }
+    func getDistance(vector1 : SCNVector3, vector2: SCNVector3) -> Float {
+        return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
     }
     
     
