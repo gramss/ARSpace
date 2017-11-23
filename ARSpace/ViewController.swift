@@ -44,6 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             scanFinished = true
             //Place Airplane
             airpl = Airplane(sceneView, "starship.dae", planeNode)
+            let cage = Cage(planeNode, 1, 0.5, planeNode.parent!)
             //activate the two arrows
             btnCntrlRight.isHidden = true
             btnCntrlLeft.isHidden  = true
