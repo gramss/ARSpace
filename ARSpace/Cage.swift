@@ -37,27 +37,17 @@ class Cage {
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY - length/2))
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY + length/2))
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
-            
-            NSLog("Edges length: %d", edges.count)
         }
         else{
             NSLog("Width > Length")
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY + length/2))
-            
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY + length/2))
-            
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth, centerY - length/2))
-            
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY + length/2))
-            
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth + cageHeight, centerY - length/2))
-            
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
-            
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY - length/2))
-            
-            
         }
         //Correct edges[1] and [2]
         let distance01 = getDistance(vector1: edges[0], vector2: edges[1])
@@ -99,6 +89,13 @@ class Cage {
             
             return false
         }
+    }
+    func getSpawnPointAirplane() -> SCNVector3 {
+        var spawnPoint = SCNVector3()
+        spawnPoint.x = (edges[0].x - edges[1].x)/2 + edges[0].x
+        spawnPoint.y = (edges[0].y - edges[1].y)/2 + edges[0].y
+        spawnPoint.z = (edges[0].z - edges[1].z)/2 + edges[0].z
+        return spawnPoint
     }
     
     func generateCube(vector : SCNVector3, color : UIColor, node : SCNNode){
