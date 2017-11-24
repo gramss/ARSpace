@@ -43,8 +43,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             lblTextForStart.text = ""
             scanFinished = true
             //Place Airplane
+            
+            let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
             airpl = Airplane(sceneView, "starship.dae", planeNode)
-            let cage = Cage(planeNode, 1, 0.5, planeNode.parent!)
+            airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
+            
             //activate the two arrows
             btnCntrlRight.isHidden = true
             btnCntrlLeft.isHidden  = true
@@ -84,6 +87,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     @IBAction func btnDown(_ sender: UIButton) {
         airpl?.moveDown()
+    }
+    
+    @IBOutlet weak var outletFeaturePoints: UISwitch!
+    @IBAction func btnFeaturePoints(_ sender: UISwitch) {
+        if(outletFeaturePoints.isOn)
+        {
+            sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
+        }
+        if(!outletFeaturePoints.isOn)
+        {
+            sceneView.debugOptions = []
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

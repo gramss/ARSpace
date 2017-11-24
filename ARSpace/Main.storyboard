@@ -22,8 +22,8 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-wc-odS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-CH-hkC">
-                                <rect key="frame" x="16" y="490" width="347" height="157"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-CH-hkC">
+                                <rect key="frame" x="16" y="455" width="347" height="157"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-2r-YnT">
                                         <rect key="frame" x="134" y="90" width="79" height="75"/>
@@ -115,6 +115,20 @@
                                     <constraint firstItem="APt-ko-9TE" firstAttribute="top" secondItem="qbA-aP-dlK" secondAttribute="top" constant="36" id="thU-gI-Ctj"/>
                                 </constraints>
                             </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtg-Ch-EWD" userLabel="BtnFeature">
+                                <rect key="frame" x="293" y="633" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="btnFeaturePoints:" destination="BV1-FR-VrT" eventType="valueChanged" id="Rt3-oD-uRo"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feature Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoV-ag-vM0">
+                                <rect key="frame" x="261" y="613" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -138,6 +152,7 @@
                         <outlet property="btnStart" destination="Cz8-Zv-qgF" id="3b5-wV-I9s"/>
                         <outlet property="controlView" destination="3IW-CH-hkC" id="36d-bt-SY7"/>
                         <outlet property="lblTextForStart" destination="APt-ko-9TE" id="1nF-fD-eVV"/>
+                        <outlet property="outletFeaturePoints" destination="Xtg-Ch-EWD" id="shg-rG-fZ4"/>
                         <outlet property="sceneView" destination="RXZ-wc-odS" id="VIP-ci-dFv"/>
                         <outlet property="startView" destination="qbA-aP-dlK" id="Pl3-RC-AGY"/>
                     </connections>

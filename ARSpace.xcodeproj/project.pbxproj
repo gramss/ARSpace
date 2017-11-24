@@ -115,6 +115,7 @@
 			children = (
 				17E611101FAE81390083CFD3 /* Airplane.swift */,
 				FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */,
+				2C6F641B1FBDCA4F00DBA364 /* Cage.swift */,
 				17E611121FAE813A0083CFD3 /* ViewController.swift */,
 				257DFDA61FAEA35600D0577D /* RendererFunctions.swift */,
 				17E611141FAE813A0083CFD3 /* AppDelegate.swift */,
@@ -126,7 +127,6 @@
 				17E6110E1FAE81390083CFD3 /* Info.plist */,
 				17E611111FAE813A0083CFD3 /* starship.dae */,
 				17E6110D1FAE81380083CFD3 /* ARSpace-Bridging-Header.h */,
-				2C6F641B1FBDCA4F00DBA364 /* Cage.swift */,
 			);
 			path = ARSpace;
 			sourceTree = "<group>";
