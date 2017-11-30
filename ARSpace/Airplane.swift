@@ -23,8 +23,9 @@ class Airplane{
             airplanenode.addChildNode(childNode as SCNNode)
         }
         __scaleTo(0.10)          //Shrink the model
-        __setPosition(0, -0.1, -1)    //Place the Airplane 0.5 meters ahead of you
-        sceneview.scene.rootNode.addChildNode(airplanenode)
+//        sceneview.scene.rootNode.addChildNode(airplanenode)
+        __rotate(rotateVector: SCNVector3())
+        planenode.addChildNode(airplanenode)
     }
     let animduration : Double = 0.25
     let movedistance : CGFloat = 0.5
@@ -94,6 +95,12 @@ class Airplane{
         let nodeArray = airplanenode.childNodes
         for childNode in nodeArray {
             childNode.position = newPos
+        }
+    }
+    func __rotate(rotateVector : SCNVector3) {
+        let nodeArray = airplanenode.childNodes
+        for childNode in nodeArray {
+            childNode.eulerAngles.x = -.pi/2
         }
     }
 }

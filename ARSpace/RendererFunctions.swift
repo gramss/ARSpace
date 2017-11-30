@@ -56,13 +56,13 @@ func renderer_Add(node: SCNNode, anchor: ARAnchor, sceneView : ARSCNView, planeN
     
     return true
 }
-func renderer_Update(node: SCNNode, anchor: ARAnchor) -> Bool {
+func renderer_Update(planeNode: inout SCNNode, anchor: ARAnchor) -> Bool {
     if g_curr_Game_State == 0 {
         
         // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
         
         guard let planeAnchor = anchor as?  ARPlaneAnchor,
-            let planeNode = node.childNodes.first,
+//            let planeNode = node.childNodes.first,
             let plane = planeNode.geometry as? SCNPlane
             else { NSLog("exited from Update"); return false}
 
