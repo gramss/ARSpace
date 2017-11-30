@@ -45,7 +45,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //Place Airplane
             
             let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
-            airpl = Airplane(sceneView, "starship.dae", planeNode)
+            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!)
             airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
             
             //activate the two arrows
@@ -167,7 +167,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
 //        print("update");
-        renderer_Update(node: node, anchor: anchor)
+        renderer_Update(planeNode: &planeNode, anchor: anchor)
     }
 }
 

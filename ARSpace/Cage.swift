@@ -13,13 +13,15 @@ class Cage {
     var centerPos = SCNVector3()
     var width  : Float
     var length : Float
-    
+    var cageHeight : Float
     init(_ planeNode : SCNNode, _ airplaneHeigth : Float,_ cageHeight : Float, _ node : SCNNode){
         centerPos = planeNode.position //Let's see if this works
         let centerX = centerPos.x
         let centerY = centerPos.z
+        self.cageHeight = cageHeight
 //        let centerZ = centerPos.z
         NSLog("centerPos: %d %d %d", centerPos.x, centerPos.y, centerPos.z)
+        
         
         var planeGeometry : SCNPlane
         planeGeometry = planeNode.geometry as! SCNPlane
@@ -52,7 +54,7 @@ class Cage {
         //Correct edges[1] and [2]
         let distance01 = getDistance(vector1: edges[0], vector2: edges[1])
         let distance02 = getDistance(vector1: edges[0], vector2: edges[2])
-        if distance01 > distance02 {
+        if distance01 < distance02 {
             NSLog("Alles richtig")
         }
         else{   //distance02 > distance01
@@ -68,14 +70,15 @@ class Cage {
         }
         
         
-        generateCube(vector: edges[0], color: UIColor.red, node: node)
-        generateCube(vector: edges[1], color: UIColor.blue, node: node)
-        generateCube(vector: edges[2], color: UIColor.green, node: node)
-        generateCube(vector: edges[3], color: UIColor.yellow, node: node)
-        generateCube(vector: edges[4], color: UIColor.black, node: node)
-        generateCube(vector: edges[5], color: UIColor.purple, node: node)
-        generateCube(vector: edges[6], color: UIColor.orange, node: node)
-        generateCube(vector: edges[7], color: UIColor.magenta, node: node)
+        generateCube(vector: edges[0], color: UIColor.red,      node: node)
+        generateCube(vector: edges[1], color: UIColor.blue,     node: node)
+        generateCube(vector: edges[2], color: UIColor.green,    node: node)
+        generateCube(vector: edges[3], color: UIColor.yellow,   node: node)
+        generateCube(vector: edges[4], color: UIColor.black,    node: node)
+        generateCube(vector: edges[5], color: UIColor.purple,   node: node)
+        generateCube(vector: edges[6], color: UIColor.orange,   node: node)
+        generateCube(vector: edges[7], color: UIColor.magenta,  node: node)
+        generateCube(vector: SCNVector3Make(centerX, centerY, 0), color: UIColor.cyan, node: node)
         
         
     }
@@ -92,18 +95,18 @@ class Cage {
     }
     func getSpawnPointAirplane() -> SCNVector3 {
         var spawnPoint = SCNVector3()
-//        spawnPoint.y = edges[0].y
-        spawnPoint = edges[0]
-//        if width > length {
-//            spawnPoint.x = (edges[0].x - edges[1].x)/2 + edges[0].x
-//
-//            spawnPoint.z = edges[0].z
-//        }
-//        else{
-//            spawnPoint.x = edges[0].x
-//
-//            spawnPoint.z = (edges[0].z - edges[1].z)/2 + edges[0].z
-//        }
+        spawnPoint.y = edges[0].y + cageHeight/2
+//        spawnPoint = edges[0]
+        if width < length {
+            spawnPoint.x = (edges[1].x - edges[0].x)/2 + edges[0].x
+
+            spawnPoint.z = edges[0].z
+        }
+        else{
+            spawnPoint.x = edges[0].x
+
+            spawnPoint.z = (edges[1].z - edges[0].z)/2 + edges[0].z
+        }
         
         return spawnPoint
     }
