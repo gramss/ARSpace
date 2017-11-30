@@ -100,7 +100,7 @@ class Airplane{
     func __rotate(rotateVector : SCNVector3) {
         let nodeArray = airplanenode.childNodes
         for childNode in nodeArray {
-            childNode.eulerAngles.x = -.pi/2
+            childNode.eulerAngles.y = -.pi/2
         }
     }
 }
