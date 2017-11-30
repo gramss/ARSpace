@@ -45,8 +45,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //Place Airplane
             
             let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
-            cage.getSpawnPointAsteroid()
-            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!)
+            cage.getSpawnPointAsteroid()        //TEST
+            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!, cage)    //Automatic reference to this cage!
             airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
             
             //activate the two arrows

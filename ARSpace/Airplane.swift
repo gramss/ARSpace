@@ -11,9 +11,11 @@ import SceneKit
 class Airplane{
     var airplanescene : SCNScene
     let airplanenode = SCNNode()        //Array of all nodes
+    let cage : Cage
     
-    init(_ sceneview: ARSCNView,_ name : String,_ planenode: SCNNode){
+    init(_ sceneview: ARSCNView,_ name : String,_ planenode: SCNNode,_ refCage: Cage){
         NSLog("Airplane created")
+        cage = refCage
         //create Node here
         airplanescene = SCNScene(named: name)!
         
