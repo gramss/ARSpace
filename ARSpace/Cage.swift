@@ -14,10 +14,12 @@ class Cage {
     var width  : Float
     var length : Float
     var cageHeight : Float
+    var drawNode : SCNNode
     init(_ planeNode : SCNNode, _ airplaneHeigth : Float,_ cageHeight : Float, _ node : SCNNode){
         centerPos = planeNode.position //Let's see if this works
         let centerX = centerPos.x
         let centerY = centerPos.z
+        drawNode    = node
         self.cageHeight = cageHeight
 //        let centerZ = centerPos.z
         NSLog("centerPos: %d %d %d", centerPos.x, centerPos.y, centerPos.z)
@@ -107,13 +109,12 @@ class Cage {
 
             spawnPoint.z = (edges[1].z - edges[0].z)/2 + edges[0].z
         }
-        
         return spawnPoint
     }
     
     func generateCube(vector : SCNVector3, color : UIColor, node : SCNNode){
         //TEST
-        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        let cube = SCNBox(width: 0.01, height: 0.01, length: 0.01, chamferRadius: 0)
         let material = SCNMaterial()
         material.diffuse.contents = color
         cube.firstMaterial = material
@@ -126,8 +127,20 @@ class Cage {
         return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
     }
     func getSpawnPointAsteroid() -> SCNVector3 {
-        var spawnPoint = SCNVector3()
+        var spawnPoint = getSpawnPointAirplane()
         //Asteoriden liegen zwischen edges 2 und 3
+        if(width > length){
+//            var randheight = Float(arc4random_uniform(UInt32(cageHeight)))
+//            var randlength = arc4random_uniform(UInt32(length))
+            spawnPoint.x = spawnPoint.x + width
+            
+        }
+        else{
+//            var rand1 = arc4random_uniform(UInt32(width))
+            spawnPoint.z = spawnPoint.z + length
+            
+        }
+        generateCube(vector: spawnPoint, color: UIColor.white, node: drawNode)
         
         return spawnPoint
         

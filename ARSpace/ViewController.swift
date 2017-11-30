@@ -45,6 +45,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //Place Airplane
             
             let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
+            cage.getSpawnPointAsteroid()
             airpl = Airplane(sceneView, "starship.dae", planeNode.parent!)
             airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
             
