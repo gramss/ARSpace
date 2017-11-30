@@ -125,6 +125,13 @@ class Cage {
     func getDistance(vector1 : SCNVector3, vector2: SCNVector3) -> Float {
         return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
     }
+    func getSpawnPointAsteroid() -> SCNVector3 {
+        var spawnPoint = SCNVector3()
+        //Asteoriden liegen zwischen edges 2 und 3
+        
+        return spawnPoint
+        
+    }
     
     
 }
