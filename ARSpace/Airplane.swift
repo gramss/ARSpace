@@ -24,7 +24,7 @@ class Airplane{
         }
         __scaleTo(0.10)          //Shrink the model
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
-        __rotate(rotateVector: SCNVector3())
+        //__rotate(rotateVector: SCNVector3())
         planenode.addChildNode(airplanenode)
     }
     let animduration : Double = 0.25
@@ -100,7 +100,7 @@ class Airplane{
     func __rotate(rotateVector : SCNVector3) {
         let nodeArray = airplanenode.childNodes
         for childNode in nodeArray {
-            childNode.eulerAngles.x = -.pi/2
+            childNode.eulerAngles.y = -.pi/2
         }
     }
 }
