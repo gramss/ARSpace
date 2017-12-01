@@ -16,6 +16,7 @@ class Asteroid{
     var startPoint : SCNVector3
     var endPoint : SCNVector3
     var animationTime : Double
+    var plannode : SCNNode
     let fadeOutTime : Double = 0.72
     
     func createAsteroid(){
@@ -35,8 +36,8 @@ class Asteroid{
         let routine = SCNAction.sequence([moveShip, fadeOut])
         __myrunAction(routine)
         
-        sceneView.scene.rootNode.addChildNode(asteroidnode!)
-        
+        //sceneView.scene.rootNode.addChildNode(asteroidnode!)
+        plannode.addChildNode(asteroidnode!)
     }
     
     func randomCGFloat() -> CGFloat {
@@ -45,9 +46,10 @@ class Asteroid{
         return (CGFloat(arc4random()) / 0xFFFFFFFF) * (max - min) + min
     }
     
-    init(_ sceneViewInit: ARSCNView, _ startPoint: SCNVector3, _ endPoint: SCNVector3, _ animationTime : Double){
+    init(_ sceneViewInit: ARSCNView, _ planenode: SCNNode ,_ startPoint: SCNVector3, _ endPoint: SCNVector3, _ animationTime : Double){
         NSLog("Asteroid created")
         sceneView = sceneViewInit
+        self.plannode = planenode
         self.startPoint = startPoint
         self.endPoint = endPoint
         self.animationTime = animationTime
