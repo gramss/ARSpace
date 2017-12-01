@@ -21,6 +21,7 @@
 		17E611231FAE813B0083CFD3 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 17E611161FAE813A0083CFD3 /* Base.lproj */; };
 		257DFDA71FAEA35600D0577D /* RendererFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DFDA61FAEA35600D0577D /* RendererFunctions.swift */; };
 		2C6F641C1FBDCA4F00DBA364 /* Cage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F641B1FBDCA4F00DBA364 /* Cage.swift */; };
+		8CFE79F11FD1DE77003B502E /* ToDos in Resources */ = {isa = PBXBuildFile; fileRef = 8CFE79F01FD1DE77003B502E /* ToDos */; };
 		FAC500BC1FAF0FAA00FEF9B5 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		17E611161FAE813A0083CFD3 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		257DFDA61FAEA35600D0577D /* RendererFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererFunctions.swift; sourceTree = "<group>"; };
 		2C6F641B1FBDCA4F00DBA364 /* Cage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cage.swift; sourceTree = "<group>"; };
+		8CFE79F01FD1DE77003B502E /* ToDos */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDos; sourceTree = "<group>"; };
 		FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				17E611101FAE81390083CFD3 /* Airplane.swift */,
 				FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */,
 				2C6F641B1FBDCA4F00DBA364 /* Cage.swift */,
+				8CFE79F01FD1DE77003B502E /* ToDos */,
 				17E611121FAE813A0083CFD3 /* ViewController.swift */,
 				257DFDA61FAEA35600D0577D /* RendererFunctions.swift */,
 				17E611141FAE813A0083CFD3 /* AppDelegate.swift */,
@@ -263,6 +266,7 @@
 				17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */,
 				1792D0341FAEA10700332F51 /* Assets.xcassets in Resources */,
 				17E611231FAE813B0083CFD3 /* Base.lproj in Resources */,
+				8CFE79F11FD1DE77003B502E /* ToDos in Resources */,
 				1792D0321FAE866A00332F51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
