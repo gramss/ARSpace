@@ -19,15 +19,26 @@ class Airplane{
         //create Node here
         airplanescene = SCNScene(named: name)!
         
+        //Add All Nodes (for all parts of the airplane) to the airplane node
         let nodeArray = airplanescene.rootNode.childNodes
-
         for childNode in nodeArray {
             airplanenode.addChildNode(childNode as SCNNode)
+            //Set the Childnodes directly on the airplanenode
+            childNode.position = SCNVector3(0,0,0)
         }
-        __scaleTo(0.10)          //Shrink the model
-//        sceneview.scene.rootNode.addChildNode(airplanenode)
-        __rotate(rotateVector: SCNVector3())
+        //Add the Airplanenode to the given Node
         planenode.addChildNode(airplanenode)
+        
+        //Modify the Model
+        __setPositionVector(newPos: cage.getSpawnPointAirplane())
+        __scaleTo(0.01)          //Shrink the model
+
+//        sceneview.scene.rootNode.addChildNode(airplanenode)
+        //Rotate the Airplane to the Gamefield
+        
+//        __rotate(rotateVector: SCNVector3())
+        //TESTS
+        /////////
     }
     let animduration : Double = 0.25
     let movedistance : CGFloat = 0.5
@@ -95,9 +106,10 @@ class Airplane{
     }
     func __setPositionVector(newPos : SCNVector3) {
         let nodeArray = airplanenode.childNodes
-        for childNode in nodeArray {
-            childNode.position = newPos
-        }
+//        for childNode in nodeArray {
+//            childNode.position = newPos
+//        }
+        airplanenode.position = newPos
     }
     func __rotate(rotateVector : SCNVector3) {
         let nodeArray = airplanenode.childNodes

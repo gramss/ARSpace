@@ -1,0 +1,5 @@
+
+Airplane-Klasse:
+- Besserer Name für Planenode (ist nicht mehr planenode sondern planenode.parent)
+- Airplane je nach cage drehen
+- Movement anpassen -> weite + Buttons anpassen
