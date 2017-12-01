@@ -63,7 +63,7 @@
 		17E611161FAE813A0083CFD3 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		257DFDA61FAEA35600D0577D /* RendererFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererFunctions.swift; sourceTree = "<group>"; };
 		2C6F641B1FBDCA4F00DBA364 /* Cage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cage.swift; sourceTree = "<group>"; };
-		8C9CF6B71FD1EDAE00F52E56 /* ToDos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ToDos; path = ARSpace/ToDos; sourceTree = "<group>"; };
+		8C9CF6B71FD1EDAE00F52E56 /* ToDos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDos; sourceTree = "<group>"; };
 		FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +95,6 @@
 		17E610D11FAE80F90083CFD3 = {
 			isa = PBXGroup;
 			children = (
-				8C9CF6B71FD1EDAE00F52E56 /* ToDos */,
 				17E610DC1FAE80FA0083CFD3 /* ARSpace */,
 				17E610F31FAE80FA0083CFD3 /* ARSpaceTests */,
 				17E610FE1FAE80FA0083CFD3 /* ARSpaceUITests */,
@@ -116,6 +115,7 @@
 		17E610DC1FAE80FA0083CFD3 /* ARSpace */ = {
 			isa = PBXGroup;
 			children = (
+				8C9CF6B71FD1EDAE00F52E56 /* ToDos */,
 				17E611101FAE81390083CFD3 /* Airplane.swift */,
 				FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */,
 				2C6F641B1FBDCA4F00DBA364 /* Cage.swift */,
@@ -446,11 +446,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9H8G88D49E;
+				DEVELOPMENT_TEAM = P9M5SZ6UKW;
 				INFOPLIST_FILE = ARSpace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrlowalowa.ARSpace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matze.ARSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARSpace/ARSpace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -465,11 +465,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9H8G88D49E;
+				DEVELOPMENT_TEAM = P9M5SZ6UKW;
 				INFOPLIST_FILE = ARSpace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrlowalowa.ARSpace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matze.ARSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARSpace/ARSpace-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
