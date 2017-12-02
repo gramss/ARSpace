@@ -17,7 +17,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var planeNode : SCNNode = SCNNode()
     var airpl : Airplane?
     var asteroid : Asteroid?
+    var asteroidsSpawnTimer : Timer?
+    var cage : Cage?
     var scanFinished = false
+    
     
     @IBOutlet weak var startView: UIView!
     
@@ -44,10 +47,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             scanFinished = true
             //Place Airplane
             
-            let cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
-            asteroid = Asteroid(sceneView, planeNode.parent!, cage.getSpawnPointAsteroid() , cage.getSpawnPointAirplane(), 10)
-            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!, cage)
-            airpl?.__setPositionVector(newPos: cage.getSpawnPointAirplane())
+            cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
+            asteroid = Asteroid(sceneView, planeNode.parent!)
+            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!, cage!)
+            airpl?.__setPositionVector(newPos: cage!.getSpawnPointAirplane())
             
             //activate the two arrows
             btnCntrlRight.isHidden = true
@@ -169,6 +172,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
 //        print("update");
         renderer_Update(planeNode: &planeNode, anchor: anchor)
+    }
+    
+    func startSpawningAsteroids(spawnInterval : Double){
+        asteroidsSpawnTimer?.invalidate()
+        // start the timer
+        asteroidsSpawnTimer = Timer.scheduledTimer(timeInterval: spawnInterval , target: self, selector: #selector(spawnAsteroid), userInfo: nil, repeats: true)
+    }
+    
+    func stopSpawningAsteroids(){
+        asteroidsSpawnTimer?.invalidate()
+    }
+    @objc func spawnAsteroid(){
+        let speed : Double = 10
+        asteroid!.createAsteroid(startPoint: cage!.getSpawnPointAsteroid(), endPoint: cage!.getSpawnPointAirplane(), animationTime: speed)
     }
 }
 
