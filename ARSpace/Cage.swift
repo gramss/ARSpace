@@ -126,18 +126,74 @@ class Cage {
     func getDistance(vector1 : SCNVector3, vector2: SCNVector3) -> Float {
         return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
     }
-    func getSpawnPointAsteroid() -> SCNVector3 {
+    //The Spawn-Field is divided into four different smaller Fields. ATTENTION: The Fields are not always on the same position (Field 1 can be down left or up right for example.)
+    func getSpawnPointAsteroid(spawnField : Int) -> SCNVector3 {
         var spawnPoint = getSpawnPointAirplane()
         //Asteoriden liegen zwischen edges 2 und 3
         if(width > length){
-//            var randheight = Float(arc4random_uniform(UInt32(cageHeight)))
-//            var randlength = arc4random_uniform(UInt32(length))
+            //Die Zufallszahlen beziehen sich auf die Mitte des Feldes
+            let maxDeltaheight = cageHeight/Float(2)
+            let maxDeltalength = length/Float(2)
+            NSLog("maxHeight: %f", maxDeltaheight)
+            
+            let randDeltaheight = Float(arc4random_uniform(UInt32(maxDeltaheight * 1000)))/Float(1000)
+            let randDeltalength = Float(arc4random_uniform(UInt32(maxDeltalength * 1000)))/Float(1000)
+            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltalength)
+            //Test here if spawnpoint + width is enough, or sometimes -width is required
             spawnPoint.x = spawnPoint.x + width
+            switch(spawnField){
+            case 1:
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.z = spawnPoint.z + randDeltalength
+                break
+            case 2:
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.z = spawnPoint.z - randDeltalength
+                break
+            case 3:
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.z = spawnPoint.z + randDeltalength
+                break
+            case 4:
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.z = spawnPoint.z - randDeltalength
+                break
+            default: NSLog("Wrong Fieldnumber at Gespawnpointasteroid selected")
+            }
             
         }
-        else{
+        else{   //Length > Width
 //            var rand1 = arc4random_uniform(UInt32(width))
+            
+            let maxDeltaheight = cageHeight/Float(2)
+            let maxDeltawidth  = width/Float(2)
+            NSLog("maxHeight: %f", maxDeltaheight)
+            
+            let randDeltaheight = Float(arc4random_uniform(UInt32(maxDeltaheight * 1000)))/Float(1000)
+            let randDeltawidth  = Float(arc4random_uniform(UInt32(maxDeltawidth  * 1000)))/Float(1000)
+            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltawidth)
+            
             spawnPoint.z = spawnPoint.z + length
+            
+            switch(spawnField){
+            case 1:
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.x = spawnPoint.x + randDeltawidth
+                break
+            case 2:
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.x = spawnPoint.x - randDeltawidth
+                break
+            case 3:
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.x = spawnPoint.x + randDeltawidth
+                break
+            case 4:
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.x = spawnPoint.x - randDeltawidth
+                break
+            default: NSLog("Wrong Fieldnumber at Gespawnpointasteroid selected")
+            }
             
         }
         generateCube(vector: spawnPoint, color: UIColor.white, node: drawNode)
