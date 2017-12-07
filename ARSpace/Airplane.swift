@@ -37,7 +37,7 @@ class Airplane{
 
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         //Rotate the Airplane to the Gamefield
-        
+  
 //        __rotate(rotateVector: SCNVector3())
         //TESTS
         /////////
@@ -116,7 +116,7 @@ class Airplane{
     func __rotate(rotateVector : SCNVector3) {
         let nodeArray = airplanenode.childNodes
         for childNode in nodeArray {
-            childNode.eulerAngles.y = -.pi/2
+            childNode.eulerAngles.y = .pi/2
         }
     }
 }
