@@ -5,6 +5,9 @@
 //  Created by Matthias Vietz on 04.11.17.
 //  Copyright © 2017 Alex. All rights reserved.
 //
+let CollisionCategoryAirplane    = 1 << 0
+let CollisionCategoryAsteroid    = 1 << 1
+
 import ARKit
 import SceneKit
 
@@ -26,7 +29,10 @@ class Airplane{
             //Set the Childnodes directly on the airplanenode
             childNode.position = SCNVector3(0,0,0)
         }
-        __scaleTo(0.05)          //Shrink the model
+        //Initialize the Airplane collision physics
+        airplanenode.physicsBody?.categoryBitMask = CollisionCategoryAirplane
+        airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
+        
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         __rotate(rotateVector: SCNVector3())
         planenode.addChildNode(airplanenode)
