@@ -28,6 +28,10 @@ class Asteroid{
         box.firstMaterial = material
         
         asteroidnode = SCNNode(geometry: box)
+        
+        //Physics
+        asteroidnode?.physicsBody?.categoryBitMask = CollisionCategoryAsteroid
+        asteroidnode?.physicsBody?.collisionBitMask = CollisionCategoryAirplane
 
         asteroidnode!.position = startPoint
         
