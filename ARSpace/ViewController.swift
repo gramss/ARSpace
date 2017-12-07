@@ -49,7 +49,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
             asteroid = Asteroid(sceneView, planeNode.parent!)
-            airpl = Airplane(sceneView, "starship.dae", planeNode.parent!, cage!)
+            airpl = Airplane(sceneView, "art.scnassets/ship.scn", planeNode.parent!, cage!)
             airpl?.__setPositionVector(newPos: cage!.getSpawnPointAirplane())
             
             //activate the two arrows
@@ -185,7 +185,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     @objc func spawnAsteroid(){
         let speed : Double = 10
-        asteroid!.createAsteroid(startPoint: cage!.getSpawnPointAsteroid(), endPoint: cage!.getSpawnPointAirplane(), animationTime: speed)
+        asteroid!.createAsteroid(startPoint: cage!.getSpawnPointAsteroid(spawnField: 1), endPoint: cage!.getSpawnPointAirplane(), animationTime: speed)
     }
 }
 

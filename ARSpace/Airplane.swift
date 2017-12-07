@@ -33,7 +33,7 @@ class Airplane{
         
         //Modify the Model
         __setPositionVector(newPos: cage.getSpawnPointAirplane())
-        __scaleTo(0.01)          //Shrink the model
+        __scaleTo(0.10)          //Shrink the model
 
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         //Rotate the Airplane to the Gamefield
