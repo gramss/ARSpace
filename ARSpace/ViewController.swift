@@ -188,7 +188,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     @objc func spawnAsteroid(){
         let speed : Double = 10
-        asteroid!.createAsteroid(startPoint: cage!.getSpawnPointAirplane(), endPoint: cage!.getSpawnPointAirplane(), animationTime: speed)
+        asteroidSpawnFieldVar += 1
+        if asteroidSpawnFieldVar > 4 {
+            asteroidSpawnFieldVar = 0
+        }
+        let PointVect = cage!.getSpawnPointAsteroid(spawnField: asteroidSpawnFieldVar)
+        asteroid!.createAsteroid(startPoint: PointVect[0], endPoint: PointVect[1], animationTime: speed)
     }
 }
 
