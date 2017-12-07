@@ -127,8 +127,9 @@ class Cage {
         return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
     }
     //The Spawn-Field is divided into four different smaller Fields. ATTENTION: The Fields are not always on the same position (Field 1 can be down left or up right for example.)
-    func getSpawnPointAsteroid(spawnField : Int) -> SCNVector3 {
+    func getSpawnPointAsteroid(spawnField : Int) -> [SCNVector3] {
         var spawnPoint = getSpawnPointAirplane()
+        var returnArray : [SCNVector3] = []
         //Asteoriden liegen zwischen edges 2 und 3
         if(width > length){
             //Die Zufallszahlen beziehen sich auf die Mitte des Feldes
@@ -140,23 +141,40 @@ class Cage {
             let randDeltalength = Float(arc4random_uniform(UInt32(maxDeltalength * 1000)))/Float(1000)
             NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltalength)
             //Test here if spawnpoint + width is enough, or sometimes -width is required
-            spawnPoint.x = spawnPoint.x + width
+            
+            //spawnPoint.x = spawnPoint.x + width
             switch(spawnField){
             case 1:
-                spawnPoint.y = spawnPoint.y + randDeltaheight
-                spawnPoint.z = spawnPoint.z + randDeltalength
+                //Spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y + randDeltaheight, spawnPoint.z + randDeltalength))
+                //mirror spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y + randDeltaheight, spawnPoint.z + randDeltalength))
+//                spawnPoint.y = spawnPoint.y + randDeltaheight
+//                spawnPoint.z = spawnPoint.z + randDeltalength
                 break
             case 2:
-                spawnPoint.y = spawnPoint.y + randDeltaheight
-                spawnPoint.z = spawnPoint.z - randDeltalength
+                //Spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y + randDeltaheight, spawnPoint.z - randDeltalength))
+                //mirror spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y + randDeltaheight, spawnPoint.z - randDeltalength))
+//                spawnPoint.y = spawnPoint.y + randDeltaheight
+//                spawnPoint.z = spawnPoint.z - randDeltalength
                 break
             case 3:
-                spawnPoint.y = spawnPoint.y - randDeltaheight
-                spawnPoint.z = spawnPoint.z + randDeltalength
+                //Spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y - randDeltaheight, spawnPoint.z + randDeltalength))
+                //mirror spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y - randDeltaheight, spawnPoint.z + randDeltalength))
+//                spawnPoint.y = spawnPoint.y - randDeltaheight
+//                spawnPoint.z = spawnPoint.z + randDeltalength
                 break
             case 4:
-                spawnPoint.y = spawnPoint.y - randDeltaheight
-                spawnPoint.z = spawnPoint.z - randDeltalength
+                //Spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y - randDeltaheight, spawnPoint.z - randDeltalength))
+                //mirror spawnpoint
+                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y - randDeltaheight, spawnPoint.z - randDeltalength))
+//                spawnPoint.y = spawnPoint.y - randDeltaheight
+//                spawnPoint.z = spawnPoint.z - randDeltalength
                 break
             default: NSLog("Wrong Fieldnumber at Gespawnpointasteroid selected")
             }
