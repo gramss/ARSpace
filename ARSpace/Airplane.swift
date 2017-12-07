@@ -5,8 +5,7 @@
 //  Created by Matthias Vietz on 04.11.17.
 //  Copyright © 2017 Alex. All rights reserved.
 //
-let CollisionCategoryAirplane    = 1 << 0
-let CollisionCategoryAsteroid    = 1 << 1
+
 
 import ARKit
 import SceneKit

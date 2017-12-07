@@ -10,6 +10,10 @@ import UIKit
 import SceneKit
 import ARKit
 
+//Defines
+let CollisionCategoryAirplane    = 1 << 0
+let CollisionCategoryAsteroid    = 1 << 1
+
 var g_curr_Game_State = 0
 
 class ViewController: UIViewController, ARSCNViewDelegate {
