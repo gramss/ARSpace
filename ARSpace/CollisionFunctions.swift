@@ -10,6 +10,6 @@ import Foundation
 import SceneKit
 func physicsWorldCollisionDetected(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) -> Bool{
     
-    
+    NSLog("Collision detected")
     return true
 }
