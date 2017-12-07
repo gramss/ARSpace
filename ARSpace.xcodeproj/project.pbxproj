@@ -22,6 +22,7 @@
 		257DFDA71FAEA35600D0577D /* RendererFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DFDA61FAEA35600D0577D /* RendererFunctions.swift */; };
 		2C6F641C1FBDCA4F00DBA364 /* Cage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F641B1FBDCA4F00DBA364 /* Cage.swift */; };
 		8C9CF6B81FD1EDAF00F52E56 /* ToDos in Resources */ = {isa = PBXBuildFile; fileRef = 8C9CF6B71FD1EDAE00F52E56 /* ToDos */; };
+		8CB7F8331FD9895E00177035 /* CollisionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7F8321FD9895E00177035 /* CollisionFunctions.swift */; };
 		FAC500BC1FAF0FAA00FEF9B5 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		257DFDA61FAEA35600D0577D /* RendererFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererFunctions.swift; sourceTree = "<group>"; };
 		2C6F641B1FBDCA4F00DBA364 /* Cage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cage.swift; sourceTree = "<group>"; };
 		8C9CF6B71FD1EDAE00F52E56 /* ToDos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDos; sourceTree = "<group>"; };
+		8CB7F8321FD9895E00177035 /* CollisionFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionFunctions.swift; sourceTree = "<group>"; };
 		FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 				17E611101FAE81390083CFD3 /* Airplane.swift */,
 				FAC500BB1FAF0FAA00FEF9B5 /* Asteroid.swift */,
 				2C6F641B1FBDCA4F00DBA364 /* Cage.swift */,
+				8CB7F8321FD9895E00177035 /* CollisionFunctions.swift */,
 				17E611121FAE813A0083CFD3 /* ViewController.swift */,
 				257DFDA61FAEA35600D0577D /* RendererFunctions.swift */,
 				17E611141FAE813A0083CFD3 /* AppDelegate.swift */,
@@ -295,6 +298,7 @@
 				17E611211FAE813B0083CFD3 /* AppDelegate.swift in Sources */,
 				2C6F641C1FBDCA4F00DBA364 /* Cage.swift in Sources */,
 				17E6111F1FAE813B0083CFD3 /* ViewController.swift in Sources */,
+				8CB7F8331FD9895E00177035 /* CollisionFunctions.swift in Sources */,
 				17E6111D1FAE813B0083CFD3 /* Airplane.swift in Sources */,
 				257DFDA71FAEA35600D0577D /* RendererFunctions.swift in Sources */,
 				FAC500BC1FAF0FAA00FEF9B5 /* Asteroid.swift in Sources */,

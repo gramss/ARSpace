@@ -180,6 +180,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        print("update");
         renderer_Update(planeNode: &planeNode, anchor: anchor)
     }
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact){
+        physicsWorldCollisionDetected(world, didBegin: contact)
+    }
     
     func startSpawningAsteroids(spawnInterval : Double){
         asteroidsSpawnTimer?.invalidate()
