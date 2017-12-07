@@ -142,43 +142,30 @@ class Cage {
             NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltalength)
             //Test here if spawnpoint + width is enough, or sometimes -width is required
             
-            //spawnPoint.x = spawnPoint.x + width
+            spawnPoint.x = spawnPoint.x + width
             switch(spawnField){
             case 1:
-                //Spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y + randDeltaheight, spawnPoint.z + randDeltalength))
-                //mirror spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y + randDeltaheight, spawnPoint.z + randDeltalength))
-//                spawnPoint.y = spawnPoint.y + randDeltaheight
-//                spawnPoint.z = spawnPoint.z + randDeltalength
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.z = spawnPoint.z + randDeltalength
                 break
             case 2:
-                //Spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y + randDeltaheight, spawnPoint.z - randDeltalength))
-                //mirror spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y + randDeltaheight, spawnPoint.z - randDeltalength))
-//                spawnPoint.y = spawnPoint.y + randDeltaheight
-//                spawnPoint.z = spawnPoint.z - randDeltalength
+                spawnPoint.y = spawnPoint.y + randDeltaheight
+                spawnPoint.z = spawnPoint.z - randDeltalength
                 break
             case 3:
-                //Spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y - randDeltaheight, spawnPoint.z + randDeltalength))
-                //mirror spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y - randDeltaheight, spawnPoint.z + randDeltalength))
-//                spawnPoint.y = spawnPoint.y - randDeltaheight
-//                spawnPoint.z = spawnPoint.z + randDeltalength
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.z = spawnPoint.z + randDeltalength
                 break
             case 4:
-                //Spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x + width, spawnPoint.y - randDeltaheight, spawnPoint.z - randDeltalength))
-                //mirror spawnpoint
-                returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y - randDeltaheight, spawnPoint.z - randDeltalength))
-//                spawnPoint.y = spawnPoint.y - randDeltaheight
-//                spawnPoint.z = spawnPoint.z - randDeltalength
+                spawnPoint.y = spawnPoint.y - randDeltaheight
+                spawnPoint.z = spawnPoint.z - randDeltalength
                 break
             default: NSLog("Wrong Fieldnumber at Gespawnpointasteroid selected")
             }
-            
+            //Spawnpoint
+            returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y, spawnPoint.z))
+            //mirror spawnpoint
+            returnArray.append(SCNVector3Make(spawnPoint.x - width, spawnPoint.y, spawnPoint.z))
         }
         else{   //Length > Width
 //            var rand1 = arc4random_uniform(UInt32(width))
@@ -212,11 +199,18 @@ class Cage {
                 break
             default: NSLog("Wrong Fieldnumber at Gespawnpointasteroid selected")
             }
-            
+            //Spawnpoint
+            returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y, spawnPoint.z))
+            //mirror spawnpoint
+            returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y, spawnPoint.z - length))
         }
-        generateCube(vector: spawnPoint, color: UIColor.white, node: drawNode)
+        //Debug - shows spawnpoint
+        generateCube(vector: returnArray[0], color: UIColor.white, node: drawNode)
+        //Debug - shows mirror
+        generateCube(vector: returnArray[1], color: UIColor.cyan, node: drawNode)
         
-        return spawnPoint
+        
+        return returnArray
         
     }
     
