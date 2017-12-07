@@ -16,7 +16,7 @@ let CollisionCategoryAsteroid    = 1 << 1
 
 var g_curr_Game_State = 0
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
     
     var planeNode : SCNNode = SCNNode()
     var airpl : Airplane?
@@ -116,6 +116,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
+        sceneView.scene.physicsWorld.contactDelegate = self
         
         //Featurepoints anzeigen
         sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
@@ -181,6 +182,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         renderer_Update(planeNode: &planeNode, anchor: anchor)
     }
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact){
+        NSLog("Collision detected")
         physicsWorldCollisionDetected(world, didBegin: contact)
     }
     
@@ -197,7 +199,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let speed : Double = 10
         asteroidSpawnFieldVar += 1
         if asteroidSpawnFieldVar > 4 {
-            asteroidSpawnFieldVar = 0
+            asteroidSpawnFieldVar = 1
         }
         let PointVect = cage!.getSpawnPointAsteroid(spawnField: asteroidSpawnFieldVar)
         asteroid!.createAsteroid(startPoint: PointVect[0], endPoint: PointVect[1], animationTime: speed)

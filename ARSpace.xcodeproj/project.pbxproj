@@ -12,7 +12,6 @@
 		1792D0341FAEA10700332F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1792D0331FAEA10700332F51 /* Assets.xcassets */; };
 		17E610F51FAE80FA0083CFD3 /* ARSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610F41FAE80FA0083CFD3 /* ARSpaceTests.swift */; };
 		17E611001FAE80FA0083CFD3 /* ARSpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610FF1FAE80FA0083CFD3 /* ARSpaceUITests.swift */; };
-		17E6111B1FAE813B0083CFD3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17E6110E1FAE81390083CFD3 /* Info.plist */; };
 		17E6111D1FAE813B0083CFD3 /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611101FAE81390083CFD3 /* Airplane.swift */; };
 		17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */ = {isa = PBXBuildFile; fileRef = 17E611111FAE813A0083CFD3 /* starship.dae */; };
 		17E6111F1FAE813B0083CFD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611121FAE813A0083CFD3 /* ViewController.swift */; };
@@ -218,7 +217,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Florian Gramß";
 				TargetAttributes = {
 					17E610D91FAE80FA0083CFD3 = {
@@ -263,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17E6111B1FAE813B0083CFD3 /* Info.plist in Resources */,
 				1792D02D1FAE857100332F51 /* LaunchScreen.storyboard in Resources */,
 				17E611201FAE813B0083CFD3 /* art.scnassets in Resources */,
 				17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */,

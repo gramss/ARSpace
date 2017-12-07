@@ -112,10 +112,6 @@ class Airplane{
         }
     }
     func __setPositionVector(newPos : SCNVector3) {
-        let nodeArray = airplanenode.childNodes
-//        for childNode in nodeArray {
-//            childNode.position = newPos
-//        }
         airplanenode.position = newPos
     }
     func __rotate(rotateVector : SCNVector3) {
