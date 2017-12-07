@@ -18,8 +18,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var airpl : Airplane?
     var asteroid : Asteroid?
     var asteroidsSpawnTimer : Timer?
+    var asteroidSpawnFieldVar : Int = 0
     var cage : Cage?
     var scanFinished = false
+    
     
     
     @IBOutlet weak var startView: UIView!
@@ -63,6 +65,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             startView.isHidden = true
             btnCntrlLeft.isHidden  = false
             btnCntrlRight.isHidden = false
+            self.startSpawningAsteroids(spawnInterval: 1)
         }
     }
     func planeFound() {
