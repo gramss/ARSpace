@@ -22,7 +22,7 @@ class Airplane{
         for childNode in nodeArray {
             airplanenode.addChildNode(childNode as SCNNode)
         }
-        __scaleTo(0.10)          //Shrink the model
+        __scaleTo(0.05)          //Shrink the model
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         __rotate(rotateVector: SCNVector3())
         planenode.addChildNode(airplanenode)
