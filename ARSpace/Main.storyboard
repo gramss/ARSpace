@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,99 +17,81 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARSpace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gPa-qA-TYg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-wc-odS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </arscnView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtg-Ch-EWD" userLabel="BtnFeature">
-                                <rect key="frame" x="238" y="534" width="51" height="31"/>
+                                <rect key="frame" x="332" y="702" width="51" height="31"/>
                                 <connections>
                                     <action selector="btnFeaturePoints:" destination="BV1-FR-VrT" eventType="valueChanged" id="Rt3-oD-uRo"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoV-ag-vM0">
-                                <rect key="frame" x="206" y="514" width="110" height="21"/>
+                                <rect key="frame" x="300" y="682" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-CH-hkC">
-                                <rect key="frame" x="16" y="357" width="283" height="157"/>
+                                <rect key="frame" x="20" y="525" width="373" height="157"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-2r-YnT">
-                                        <rect key="frame" x="106.5" y="90" width="79" height="75"/>
+                                        <rect key="frame" x="149" y="90" width="75" height="75"/>
                                         <state key="normal" image="icons8-chevron_down"/>
                                         <connections>
                                             <action selector="btnDown:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6B8-Qu-BUU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odc-gB-qrX">
-                                        <rect key="frame" x="154.5" y="42" width="75" height="75"/>
+                                        <rect key="frame" x="196" y="42" width="75" height="75"/>
                                         <state key="normal" image="icons8-chevron_right"/>
                                         <connections>
                                             <action selector="btnRight:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CZf-n1-i4P"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knJ-wh-TGW">
-                                        <rect key="frame" x="61.5" y="42" width="75" height="75"/>
+                                        <rect key="frame" x="102" y="42" width="75" height="75"/>
                                         <state key="normal" image="icons8-chevron_left"/>
                                         <connections>
                                             <action selector="btnLeft:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fZM-LW-jVU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-3T-FMB">
-                                        <rect key="frame" x="108.5" y="-7" width="75" height="75"/>
+                                        <rect key="frame" x="149" y="-7" width="75" height="75"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <state key="normal" image="icons8-chevron_up"/>
                                         <connections>
                                             <action selector="btnUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9f7-ym-jxa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjD-fj-k1Y">
-                                        <rect key="frame" x="-9.5" y="41" width="75" height="75"/>
-                                        <state key="normal" image="icons8-chevron"/>
-                                        <connections>
-                                            <action selector="btnCntrlForwardPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ree-gD-Hjc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y57-3q-fZx">
-                                        <rect key="frame" x="227.5" y="41" width="75" height="75"/>
-                                        <state key="normal" image="icons8-chevron_hashtag"/>
-                                        <connections>
-                                            <action selector="btnCntrlBackwardPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xrk-1P-BJa"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="odc-gB-qrX" secondAttribute="top" id="01M-g6-fPH"/>
-                                    <constraint firstItem="y57-3q-fZx" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" constant="123.5" id="1cw-ii-yO5"/>
-                                    <constraint firstItem="y57-3q-fZx" firstAttribute="leading" secondItem="Cl3-2r-YnT" secondAttribute="trailing" constant="42" id="5Wt-ps-8Ol"/>
-                                    <constraint firstItem="WjD-fj-k1Y" firstAttribute="top" secondItem="y57-3q-fZx" secondAttribute="top" id="HT5-ti-x5q"/>
-                                    <constraint firstItem="odc-gB-qrX" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" constant="50.5" id="L16-TD-dEe"/>
-                                    <constraint firstItem="Cl3-2r-YnT" firstAttribute="leading" secondItem="WjD-fj-k1Y" secondAttribute="trailing" constant="41" id="NC6-Dn-YwP"/>
-                                    <constraint firstItem="WjD-fj-k1Y" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" constant="-113.5" id="ZTK-hf-ELo"/>
-                                    <constraint firstItem="Cl3-2r-YnT" firstAttribute="centerY" secondItem="3IW-CH-hkC" secondAttribute="centerY" constant="49" id="iqO-oA-dT6"/>
+                                    <constraint firstItem="Krx-3T-FMB" firstAttribute="baseline" secondItem="knJ-wh-TGW" secondAttribute="firstBaseline" constant="26" id="4dv-0X-1Iw"/>
+                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="3IW-CH-hkC" secondAttribute="top" constant="42" id="9tv-Y4-Bgi"/>
+                                    <constraint firstItem="Krx-3T-FMB" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" id="Lo7-hC-44u"/>
+                                    <constraint firstItem="Cl3-2r-YnT" firstAttribute="top" secondItem="Krx-3T-FMB" secondAttribute="bottom" constant="22" id="Rg3-Wa-ACa"/>
+                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="leading" secondItem="Krx-3T-FMB" secondAttribute="leading" constant="-47" id="SVq-lw-qOg"/>
+                                    <constraint firstItem="Krx-3T-FMB" firstAttribute="top" secondItem="3IW-CH-hkC" secondAttribute="top" constant="-7" id="Zoa-nb-OIF"/>
                                     <constraint firstItem="Krx-3T-FMB" firstAttribute="centerX" secondItem="Cl3-2r-YnT" secondAttribute="centerX" id="kwb-sE-Jrb"/>
-                                    <constraint firstItem="Krx-3T-FMB" firstAttribute="centerY" secondItem="3IW-CH-hkC" secondAttribute="centerY" constant="-48" id="mYw-V1-Ugi"/>
-                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="3IW-CH-hkC" secondAttribute="top" constant="42" id="s5p-2O-xcj"/>
-                                    <constraint firstItem="WjD-fj-k1Y" firstAttribute="centerY" secondItem="3IW-CH-hkC" secondAttribute="centerY" id="t6M-DX-usD"/>
-                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="centerX" secondItem="3IW-CH-hkC" secondAttribute="centerX" constant="-42.5" id="zMf-60-qdQ"/>
+                                    <constraint firstItem="odc-gB-qrX" firstAttribute="leading" secondItem="knJ-wh-TGW" secondAttribute="trailing" constant="19" id="lIs-My-q44"/>
+                                    <constraint firstItem="knJ-wh-TGW" firstAttribute="top" secondItem="odc-gB-qrX" secondAttribute="top" id="vpv-P4-rXC"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-aP-dlK">
-                                <rect key="frame" x="69" y="232" width="181" height="104"/>
+                                <rect key="frame" x="69" y="232" width="275" height="272"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Zv-qgF">
-                                        <rect key="frame" x="53.5" y="15.5" width="75" height="75"/>
+                                        <rect key="frame" x="100" y="100" width="75" height="75"/>
                                         <state key="normal" image="icons8-start_filled"/>
                                         <connections>
                                             <action selector="btnStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Uhb-zV-Fzt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the environment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APt-ko-9TE">
-                                        <rect key="frame" x="-19.5" y="-13.5" width="220" height="21"/>
+                                        <rect key="frame" x="27" y="71" width="220" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -157,13 +140,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88.799999999999997" y="115.59220389805098"/>
+            <point key="canvasLocation" x="88.125" y="115.14084507042254"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-chevron" width="75" height="75"/>
         <image name="icons8-chevron_down" width="75" height="75"/>
-        <image name="icons8-chevron_hashtag" width="75" height="75"/>
         <image name="icons8-chevron_left" width="75" height="75"/>
         <image name="icons8-chevron_right" width="75" height="75"/>
         <image name="icons8-chevron_up" width="75" height="75"/>
