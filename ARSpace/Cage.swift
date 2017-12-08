@@ -10,9 +10,11 @@ import SceneKit
 
 class Cage {
     var edges : [SCNVector3] = []           //Array for all 8 Edges
+    var drawedges : [SCNNode] = []
     var centerPos = SCNVector3()
     var width  : Float
     var length : Float
+    var shorterDistance : Float             //Either width or length, the one which is shorter
     var cageHeight : Float
     var drawNode : SCNNode
     init(_ planeNode : SCNNode, _ airplaneHeigth : Float,_ cageHeight : Float, _ node : SCNNode){
@@ -31,6 +33,7 @@ class Cage {
         length = Float(planeGeometry.height)       //The plane is rotated by 90° so it's height is really it's length
         //CURRENTLY HERE!
         if(length > width ){
+            shorterDistance = width
 //            edges[0] = SCNVector3(
             NSLog("Length > Width")
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
@@ -43,6 +46,7 @@ class Cage {
             edges.append(SCNVector3Make(centerX + width/2, airplaneHeigth + cageHeight, centerY + length/2))
         }
         else{
+            shorterDistance = length
             NSLog("Width > Length")
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY + length/2))
             edges.append(SCNVector3Make(centerX - width/2, airplaneHeigth, centerY - length/2))
@@ -72,15 +76,15 @@ class Cage {
         }
         
         
-        generateCube(vector: edges[0], color: UIColor.red,      node: node)
-        generateCube(vector: edges[1], color: UIColor.blue,     node: node)
-        generateCube(vector: edges[2], color: UIColor.green,    node: node)
-        generateCube(vector: edges[3], color: UIColor.yellow,   node: node)
-        generateCube(vector: edges[4], color: UIColor.black,    node: node)
-        generateCube(vector: edges[5], color: UIColor.purple,   node: node)
-        generateCube(vector: edges[6], color: UIColor.orange,   node: node)
-        generateCube(vector: edges[7], color: UIColor.magenta,  node: node)
-        generateCube(vector: SCNVector3Make(centerX, centerY, 0), color: UIColor.cyan, node: node)
+        drawedges.append(generateCube(vector: edges[0], color: UIColor.red,      node: node))
+        drawedges.append(generateCube(vector: edges[1], color: UIColor.blue,     node: node))
+        drawedges.append(generateCube(vector: edges[2], color: UIColor.green,    node: node))
+        drawedges.append(generateCube(vector: edges[3], color: UIColor.yellow,   node: node))
+        drawedges.append(generateCube(vector: edges[4], color: UIColor.black,    node: node))
+        drawedges.append(generateCube(vector: edges[5], color: UIColor.purple,   node: node))
+        drawedges.append(generateCube(vector: edges[6], color: UIColor.orange,   node: node))
+        drawedges.append(generateCube(vector: edges[7], color: UIColor.magenta,  node: node))
+        drawedges.append(generateCube(vector: SCNVector3Make(centerX, centerY, 0), color: UIColor.cyan, node: node))
         
         
     }
@@ -90,10 +94,10 @@ class Cage {
         if true {
             return true
         }
-        else{
-            
-            return false
-        }
+//        else{
+//            
+//            return false
+//        }
     }
     func getSpawnPointAirplane() -> SCNVector3 {
         var spawnPoint = SCNVector3()
@@ -112,7 +116,7 @@ class Cage {
         return spawnPoint
     }
     
-    func generateCube(vector : SCNVector3, color : UIColor, node : SCNNode){
+    func generateCube(vector : SCNVector3, color : UIColor, node : SCNNode) ->SCNNode{
         //TEST
         let cube = SCNBox(width: 0.01, height: 0.01, length: 0.01, chamferRadius: 0)
         let material = SCNMaterial()
@@ -122,6 +126,7 @@ class Cage {
         
         testnode.simdPosition = float3(vector.x, vector.y, vector.z)
         node.addChildNode(testnode)
+        return testnode
     }
     func getDistance(vector1 : SCNVector3, vector2: SCNVector3) -> Float {
         return sqrt(pow(vector1.x - vector2.x, 2) + pow(vector1.y - vector2.y, 2) + pow(vector1.z - vector2.z, 2))
@@ -135,11 +140,11 @@ class Cage {
             //Die Zufallszahlen beziehen sich auf die Mitte des Feldes
             let maxDeltaheight = cageHeight/Float(2)
             let maxDeltalength = length/Float(2)
-            NSLog("maxHeight: %f", maxDeltaheight)
+//            NSLog("maxHeight: %f", maxDeltaheight)
             
             let randDeltaheight = Float(arc4random_uniform(UInt32(maxDeltaheight * 1000)))/Float(1000)
             let randDeltalength = Float(arc4random_uniform(UInt32(maxDeltalength * 1000)))/Float(1000)
-            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltalength)
+//            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltalength)
             //Test here if spawnpoint + width is enough, or sometimes -width is required
             
             spawnPoint.x = spawnPoint.x + width
@@ -172,11 +177,11 @@ class Cage {
             
             let maxDeltaheight = cageHeight/Float(2)
             let maxDeltawidth  = width/Float(2)
-            NSLog("maxHeight: %f", maxDeltaheight)
+//            NSLog("maxHeight: %f", maxDeltaheight)
             
             let randDeltaheight = Float(arc4random_uniform(UInt32(maxDeltaheight * 1000)))/Float(1000)
             let randDeltawidth  = Float(arc4random_uniform(UInt32(maxDeltawidth  * 1000)))/Float(1000)
-            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltawidth)
+//            NSLog("rand1: %f ; rand2 : %f", randDeltaheight, randDeltawidth)
             
             spawnPoint.z = spawnPoint.z + length
             
@@ -205,13 +210,21 @@ class Cage {
             returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y, spawnPoint.z - length))
         }
         //Debug - shows spawnpoint
-        generateCube(vector: returnArray[0], color: UIColor.white, node: drawNode)
+        let _ = generateCube(vector: returnArray[0], color: UIColor.white, node: drawNode)
         //Debug - shows mirror
-        generateCube(vector: returnArray[1], color: UIColor.cyan, node: drawNode)
+        let _ = generateCube(vector: returnArray[1], color: UIColor.cyan, node: drawNode)
         
         
         return returnArray
         
+    }
+    func moveCageUpDown(distance : Float) {
+        var i = 0
+        for var edge in edges {
+            edge.y += distance
+            drawedges[i].position = edge
+            i += 1
+        }
     }
     
     

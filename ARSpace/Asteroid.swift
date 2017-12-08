@@ -30,8 +30,9 @@ class Asteroid{
         asteroidnode = SCNNode(geometry: box)
         
         //Physics
+        asteroidnode?.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
         asteroidnode?.physicsBody?.categoryBitMask = CollisionCategoryAsteroid
-        asteroidnode?.physicsBody?.collisionBitMask = CollisionCategoryAirplane
+        asteroidnode?.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
 
         asteroidnode!.position = startPoint
         
@@ -62,11 +63,6 @@ class Asteroid{
         }
     
     func __myrunAction(_ routine: SCNAction){
-        let nodeArray = asteroidnode?.childNodes
-        
-//        for childNode in nodeArray! {
-//            childNode.runAction(routine)
-//        }
         asteroidnode?.runAction(routine)
     }
 }

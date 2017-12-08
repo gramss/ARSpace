@@ -48,6 +48,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         //sceneView.showsStatistics = false // turn of point cloud when pane is found
         // turn on visible pane?
         if !scanFinished{
+            /*---------Deactivate Plane Detection-----------*/
+            // Get our existing session configuration
+            let configuration = self.sceneView.session.configuration as! ARWorldTrackingConfiguration
+            // Turn off future plane detection and updating
+            configuration.planeDetection = []
+            // Re-run the session for the changes to take effect
+//            [self.sceneView.session runWithConfiguration:configuration]
+            sceneView.session.run(configuration)
+            /*-----------------------------------------------*/
+            
             g_curr_Game_State = 1;
             lblTextForStart.text = ""
             scanFinished = true
@@ -55,6 +65,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             
             cage = Cage(planeNode, 0.01, 0.5, planeNode.parent!)
             asteroid = Asteroid(sceneView, planeNode.parent!)
+            //TEST
+//            asteroid = Asteroid(sceneView, sceneView.scene.rootNode)
+            //---------------
             airpl = Airplane(sceneView, "art.scnassets/ship.scn", planeNode.parent!, cage!)
             airpl?.__setPositionVector(newPos: cage!.getSpawnPointAirplane())
             
@@ -116,6 +129,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         //controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
+        sceneView.scene = SCNScene()
         sceneView.scene.physicsWorld.contactDelegate = self
         
         //Featurepoints anzeigen
@@ -171,19 +185,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("added");
-        if(renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode, viewcontroller: self)){
-            
+        if(!renderer_Add(node: node, anchor: anchor, sceneView: sceneView, planeNode: &planeNode, viewcontroller: self)){
+            //Do something here
         }
         //In RendererFunctions
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
 //        print("update");
-        renderer_Update(planeNode: &planeNode, anchor: anchor)
+        if(!renderer_Update(planeNode: &planeNode, anchor: anchor)){
+            //Do something here
+        }
     }
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact){
         NSLog("Collision detected")
-        physicsWorldCollisionDetected(world, didBegin: contact)
+        if(!physicsWorldCollisionDetected(world, didBegin: contact)){
+            //Test something here
+        }
     }
     
     func startSpawningAsteroids(spawnInterval : Double){
@@ -203,6 +221,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         }
         let PointVect = cage!.getSpawnPointAsteroid(spawnField: asteroidSpawnFieldVar)
         asteroid!.createAsteroid(startPoint: PointVect[0], endPoint: PointVect[1], animationTime: speed)
+        //Let a second asteroid crash here:
+//        asteroid!.createAsteroid(startPoint: PointVect[1], endPoint: PointVect[0], animationTime: speed)
+        
+        sceneView.scene.physicsWorld.updateCollisionPairs()
     }
 }
 

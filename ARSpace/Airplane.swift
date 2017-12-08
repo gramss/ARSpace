@@ -13,11 +13,15 @@ import SceneKit
 class Airplane{
     var airplanescene : SCNScene
     let airplanenode = SCNNode()        //Array of all nodes
+    let animduration : Double = 0.25
+    let movedistance : CGFloat
     let cage : Cage
     
     init(_ sceneview: ARSCNView,_ name : String,_ planenode: SCNNode,_ refCage: Cage){
         NSLog("Airplane created")
         cage = refCage
+        //Let the Airplane move only 10% of the short Side per click
+        movedistance = CGFloat(cage.shorterDistance/Float(10))
         //create Node here
         airplanescene = SCNScene(named: name)!
         
@@ -47,8 +51,7 @@ class Airplane{
         //TESTS
         /////////
     }
-    let animduration : Double = 0.25
-    let movedistance : CGFloat = 0.5
+
     func moveLeft(){
         NSLog("MOVE LEFT")
         let moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
@@ -68,6 +71,9 @@ class Airplane{
         let moveShip = SCNAction.moveBy(x: 0, y: movedistance, z: 0, duration: animduration)
         let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
+        if g_curr_Game_State == 1 {
+            cage.moveCageUpDown(distance: Float(movedistance))
+        }
     }
     func moveDown(){
         NSLog("MOVE DOWN")
@@ -75,6 +81,9 @@ class Airplane{
         let moveShip = SCNAction.moveBy(x: 0, y: -movedistance, z: 0, duration: animduration)
         let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
+        if g_curr_Game_State == 1 {
+            cage.moveCageUpDown(distance: Float(-movedistance))
+        }
     }
     func moveForward(){
         NSLog("MOVE FORWARD")
