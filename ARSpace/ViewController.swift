@@ -32,13 +32,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     @IBOutlet weak var btnCntrlRight: UIButton!
     @IBOutlet weak var btnCntrlLeft: UIButton!
-    @IBAction func btnCntrlForwardPressed(_ sender: Any) {
-        airpl?.moveForward()
-    }
-    @IBAction func btnCntrlBackwardPressed(_ sender: Any) {
-        airpl?.moveBackward()
-    }
-    
+  
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
