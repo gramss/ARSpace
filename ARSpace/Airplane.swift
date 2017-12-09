@@ -60,50 +60,8 @@ class Airplane{
         if cage.shorterDistance == cage.width {     //Length > Width
             //DECIDE IF YOU NEED TO SWITCH LEFT AND RIGHT HERE!!
             NSLog("currPos.x before %f", currPos.x)
-            currPos.x += Float(-movedistance)
-            NSLog("currPos.x after %f", currPos.x)
-            if cage.isInside(position: currPos){
-                moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
-            }
-            else{
-                NSLog("Airplane tried to move out of cage!(moveRight-X)")
-            }
-            if(!cage.isInside(position: SCNVector3(currPos.x + Float(-movedistance), currPos.y, currPos.z))){
-                isNextTurnInside = false
-            }
-            
-        }
-        else    //Width > Length
-        {
-            NSLog("CurrPos Z before %f", currPos.z)
-            currPos.z += Float(-movedistance)
-            NSLog("CurrPos Z after %f", currPos.z)
-            if(cage.isInside(position: currPos)){
-                moveShip = SCNAction.moveBy(x: 0, y: 0, z: -movedistance, duration: animduration)
-            }
-            else{
-                NSLog("Airplane tried to move out of cage!(moveRight-Z)")
-            }
-            if(!cage.isInside(position: SCNVector3(currPos.x , currPos.y, currPos.z + Float(-movedistance)))){
-                isNextTurnInside = false
-            }
-        }
-//        let moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
-        let routine = SCNAction.sequence([moveShip])
-        __myrunAction(routine)
-        return isNextTurnInside
-    }
-    func moveRight() -> Bool{
-        NSLog("MOVE RIGHT")
-        var moveShip : SCNAction = SCNAction()
-        var currPos = airplanenode.position
-        var isNextTurnInside : Bool = true                        //Variable to show if a next move to the right is possible
-        
-        if cage.shorterDistance == cage.width {     //Length > Width
-            //DECIDE IF YOU NEED TO SWITCH LEFT AND RIGHT HERE!!
-//            NSLog("currPos.x before %f", currPos.x)
             currPos.x += Float(movedistance)
-//            NSLog("currPos.x after %f", currPos.x)
+            NSLog("currPos.x after %f", currPos.x)
             if cage.isInside(position: currPos){
                 moveShip = SCNAction.moveBy(x: movedistance, y: 0, z: 0, duration: animduration)
             }
@@ -117,9 +75,9 @@ class Airplane{
         }
         else    //Width > Length
         {
-//            NSLog("CurrPos Z before %f", currPos.z)
+            NSLog("CurrPos Z before %f", currPos.z)
             currPos.z += Float(movedistance)
-//            NSLog("CurrPos Z after %f", currPos.z)
+            NSLog("CurrPos Z after %f", currPos.z)
             if(cage.isInside(position: currPos)){
                 moveShip = SCNAction.moveBy(x: 0, y: 0, z: movedistance, duration: animduration)
             }
@@ -130,7 +88,49 @@ class Airplane{
                 isNextTurnInside = false
             }
         }
-        //        let moveShip = SCNAction.moveBy(x: movedistance, y: 0, z: 0, duration: animduration)
+//        let moveShip = SCNAction.moveBy(x: movedistance, y: 0, z: 0, duration: animduration)
+        let routine = SCNAction.sequence([moveShip])
+        __myrunAction(routine)
+        return isNextTurnInside
+    }
+    func moveRight() -> Bool{
+        NSLog("MOVE RIGHT")
+        var moveShip : SCNAction = SCNAction()
+        var currPos = airplanenode.position
+        var isNextTurnInside : Bool = true                        //Variable to show if a next move to the right is possible
+        
+        if cage.shorterDistance == cage.width {     //Length > Width
+            //DECIDE IF YOU NEED TO SWITCH LEFT AND RIGHT HERE!!
+//            NSLog("currPos.x before %f", currPos.x)
+            currPos.x += Float(-movedistance)
+//            NSLog("currPos.x after %f", currPos.x)
+            if cage.isInside(position: currPos){
+                moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
+            }
+            else{
+                NSLog("Airplane tried to move out of cage!(moveRight-X)")
+            }
+            if(!cage.isInside(position: SCNVector3(currPos.x + Float(-movedistance), currPos.y, currPos.z))){
+                isNextTurnInside = false
+            }
+            
+        }
+        else    //Width > Length
+        {
+//            NSLog("CurrPos Z before %f", currPos.z)
+            currPos.z += Float(-movedistance)
+//            NSLog("CurrPos Z after %f", currPos.z)
+            if(cage.isInside(position: currPos)){
+                moveShip = SCNAction.moveBy(x: 0, y: 0, z: -movedistance, duration: animduration)
+            }
+            else{
+                NSLog("Airplane tried to move out of cage!(moveRight-Z)")
+            }
+            if(!cage.isInside(position: SCNVector3(currPos.x , currPos.y, currPos.z + Float(-movedistance)))){
+                isNextTurnInside = false
+            }
+        }
+        //        let moveShip = SCNAction.moveBy(x: -movedistance, y: 0, z: 0, duration: animduration)
         let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
         
@@ -258,8 +258,15 @@ class Airplane{
         }
         else{                                           //Width > Length
             //Rotate by 90 or -90 degree
-            
-            
+            //edges[0] is always the right end of the gamefield, edges [1] the left one
+            if(cage.edges[1].z - cage.edges[0].z < 0){
+                NSLog("Rotate Airplane by 90")
+                rotateDegree = 90
+            }
+            else{
+                NSLog("Rotate Airplane by 270(-90)")
+                rotateDegree = 270
+            }
         }
         __rotate(rotateDegree: rotateDegree)
     }
