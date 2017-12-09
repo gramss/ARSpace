@@ -96,31 +96,36 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     @IBAction func btnLeft(_ sender: UIButton) {
-        if(airpl?.moveLeft() == true){
+        if(airpl?.moveLeft() == false){
             //Next move not available
             btnCntrlLeft.isHidden = true
         }
-        //Reactivate the right button (even if it is already activated
+        //Reactivate the right button (even if it is already activated)
         btnCntrlRight.isHidden = false
     }
     @IBAction func btnRight(_ sender: UIButton) {
-        if(airpl?.moveRight() == true){
+        if(airpl?.moveRight() == false){
             //Next move not available
             btnCntrlRight.isHidden = true
         }
-        //Reactivate the left button (even if it is already activated
+        //Reactivate the left button (even if it is already activated)
         btnCntrlLeft.isHidden = false
     }
     @IBAction func btnUp(_ sender: UIButton) {
-        if(airpl?.moveUp() == true){
+        if(airpl?.moveUp() == false){
             //Next move not available
-            
+            btnCntrlUp.isHidden = true
         }
+        //Reactivate the Down button (even if it is already activated)
+        btnCntrlDown.isHidden = false
     }
     @IBAction func btnDown(_ sender: UIButton) {
-        if(airpl?.moveDown() == true){
+        if(airpl?.moveDown() == false){
             //Next move not available
+            btnCntrlDown.isHidden = true
         }
+        //Reactivate the Up button (even if it is already activated)
+        btnCntrlUp.isHidden = false
     }
     
     @IBOutlet weak var outletFeaturePoints: UISwitch!
