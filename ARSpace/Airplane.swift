@@ -37,7 +37,7 @@ class Airplane{
         airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
         
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
-        __rotate(rotateVector: SCNVector3())
+        rotateAirplanetoGamefield()
         planenode.addChildNode(airplanenode)
         
         //Modify the Model
@@ -197,6 +197,7 @@ class Airplane{
         __myrunAction(routine)
         return isNextTurnInside
     }
+    /*----------------OLD FUNCTIONS-------------------*
     func moveForward(){
         NSLog("MOVE FORWARD")
         
@@ -211,6 +212,7 @@ class Airplane{
         let routine = SCNAction.sequence([moveShip])
         __myrunAction(routine)
     }
+ /*--------------------------------------------------- */ */
     func __myrunAction(_ routine: SCNAction){
 //        let nodeArray = airplanenode.childNodes
 //
@@ -236,10 +238,29 @@ class Airplane{
     func __setPositionVector(newPos : SCNVector3) {
         airplanenode.position = newPos
     }
-    func __rotate(rotateVector : SCNVector3) {
-        let nodeArray = airplanenode.childNodes
-        for childNode in nodeArray {
-            childNode.eulerAngles.y = .pi/2
+    func __rotate(rotateDegree : Int) {
+//        let nodeArray = airplanenode.childNodes
+//        for childNode in nodeArray {
+//            childNode.eulerAngles.y = .pi/2
+//        }
+        airplanenode.eulerAngles.y = (.pi * Float(rotateDegree)/Float(180))
+    }
+    func rotateAirplanetoGamefield() {
+        //Airplane always spawns in positive z Direction
+        var rotateDegree : Int = 0
+        if (cage.shorterDistance == cage.width) {       //Length > Width
+            //Now maybe rotate by 180 degree
+            if(cage.edges[2].z - cage.edges[0].z < 0){
+                //Gamefield is in negative Z direction -> Rotate the airplane by 180 degree
+                NSLog("Rotate the airplane by 180 Degree")
+                rotateDegree = 180
+            }
         }
+        else{                                           //Width > Length
+            //Rotate by 90 or -90 degree
+            
+            
+        }
+        __rotate(rotateDegree: rotateDegree)
     }
 }
