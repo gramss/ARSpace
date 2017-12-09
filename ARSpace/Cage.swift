@@ -31,7 +31,9 @@ class Cage {
         planeGeometry = planeNode.geometry as! SCNPlane
         width = Float(planeGeometry.width)
         length = Float(planeGeometry.height)       //The plane is rotated by 90° so it's height is really it's length
-        //CURRENTLY HERE!
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*-- BE CAREFUL: Because the Plane is rotated by 90°, in the following code snippet Y and Z are switched --*/
+        /*---------------------------------------------------------------------------------------------------------*/
         if(length > width ){
             shorterDistance = width
 //            edges[0] = SCNVector3(
@@ -91,13 +93,34 @@ class Cage {
     
     func isInside(position : SCNVector3) -> Bool {
         //Calculate here
-        if true {
-            return true
+        //All Comments refer to the Creation of the edge points
+        let minX = edges[0].x       //CenterX - Width/2
+        let maxX = edges[3].x       //CenterX + Width/2
+        let minY = edges[0].y       //Lower side of cage
+        let maxY = edges[4].y       //Upper side of cage
+        var minZ = edges[0].z       //CenterY - Length/2
+        var maxZ = edges[3].z       //CenterY + Length/2
+        if minZ > maxZ {
+            let tempZ = minZ
+            minZ = maxZ
+            maxZ = tempZ
         }
-//        else{
-//            
-//            return false
-//        }
+        
+        if (position.x > maxX || position.x < minX){
+            NSLog("position.x is not in cage")
+            return false
+        }
+        else if(position.y > maxY || position.y < minY){
+            NSLog("position.y is not in cage")
+            return false
+        }
+        else if(position.z > maxZ || position.z < minZ){
+            NSLog("position.z is not in cage, minZ = %f, maxZ = %f", minZ, maxZ)
+            return false
+        }
+        //If none of the above already returns, it returns true
+        return true
+        
     }
     func getSpawnPointAirplane() -> SCNVector3 {
         var spawnPoint = SCNVector3()
@@ -219,9 +242,11 @@ class Cage {
         
     }
     func moveCageUpDown(distance : Float) {
+//        NSLog("moveCageupDown")
         var i = 0
         for var edge in edges {
             edge.y += distance
+            edges[i] = edge
             drawedges[i].position = edge
             i += 1
         }

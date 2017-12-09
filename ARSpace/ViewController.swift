@@ -51,7 +51,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 //            [self.sceneView.session runWithConfiguration:configuration]
             sceneView.session.run(configuration)
             /*-----------------------------------------------*/
-            
             g_curr_Game_State = 1;
             lblTextForStart.text = ""
             scanFinished = true
@@ -123,7 +122,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         //controlView.isHidden = true
         // Set the view's delegate
         sceneView.delegate = self
-        sceneView.scene = SCNScene()
+//        sceneView.scene = SCNScene()
+        //Not working yet
         sceneView.scene.physicsWorld.contactDelegate = self
         
         //Featurepoints anzeigen
@@ -218,7 +218,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         //Let a second asteroid crash here:
 //        asteroid!.createAsteroid(startPoint: PointVect[1], endPoint: PointVect[0], animationTime: speed)
         
-        sceneView.scene.physicsWorld.updateCollisionPairs()
+//        sceneView.scene.physicsWorld.updateCollisionPairs()
     }
 }
 

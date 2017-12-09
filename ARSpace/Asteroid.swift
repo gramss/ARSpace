@@ -30,9 +30,10 @@ class Asteroid{
         asteroidnode = SCNNode(geometry: box)
         
         //Physics
-        asteroidnode?.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
+        asteroidnode?.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
         asteroidnode?.physicsBody?.categoryBitMask = CollisionCategoryAsteroid
         asteroidnode?.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
+        asteroidnode?.physicsBody?.isAffectedByGravity = false
 
         asteroidnode!.position = startPoint
         
