@@ -128,8 +128,10 @@
                     </view>
                     <connections>
                         <outlet property="ControlView" destination="3IW-CH-hkC" id="8KQ-uJ-Fcw"/>
+                        <outlet property="btnCntrlDown" destination="Cl3-2r-YnT" id="Ypx-NP-HEP"/>
                         <outlet property="btnCntrlLeft" destination="knJ-wh-TGW" id="q8n-J5-Eor"/>
                         <outlet property="btnCntrlRight" destination="odc-gB-qrX" id="YUJ-o8-A7d"/>
+                        <outlet property="btnCntrlUp" destination="Krx-3T-FMB" id="Mjm-fw-5Za"/>
                         <outlet property="btnStart" destination="Cz8-Zv-qgF" id="3b5-wV-I9s"/>
                         <outlet property="controlView" destination="3IW-CH-hkC" id="36d-bt-SY7"/>
                         <outlet property="lblTextForStart" destination="APt-ko-9TE" id="1nF-fD-eVV"/>

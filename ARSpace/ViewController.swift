@@ -32,7 +32,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     @IBOutlet weak var btnCntrlRight: UIButton!
     @IBOutlet weak var btnCntrlLeft: UIButton!
-  
+    @IBOutlet weak var btnCntrlUp: UIButton!
+    @IBOutlet weak var btnCntrlDown: UIButton!
+    
     @IBOutlet weak var controlView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lblTextForStart: UILabel!
