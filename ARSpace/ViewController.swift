@@ -215,9 +215,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             //Do something here
         }
     }
+    //Function that gets called at collision
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact){
         NSLog("Collision detected")
-        if(!physicsWorldCollisionDetected(world, didBegin: contact)){
+        if(!physicsWorldCollisionDetected(world, didBegin: contact, view: self)){
             //Test something here
         }
     }
