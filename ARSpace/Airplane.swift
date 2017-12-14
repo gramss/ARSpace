@@ -44,9 +44,12 @@ class Airplane{
         //Modify the Model
         __setPositionVector(newPos: cage.getSpawnPointAirplane())
         __scaleTo(Double(cage.shorterDistance/Float(5)))          //Shrink the model
-
+        
+        let scale = CGFloat(cage.shorterDistance/Float(5))
+        let box = SCNBox(width: scale, height: scale, length: scale, chamferRadius: 0)
         //Initialize the Airplane collision physics
-        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode))
+//        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode))
+        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: box))
         airplanenode.physicsBody?.categoryBitMask = CollisionCategoryAirplane
         airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
         airplanenode.physicsBody?.categoryBitMask = (airplanenode.physicsBody?.collisionBitMask)!

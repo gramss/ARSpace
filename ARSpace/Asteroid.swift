@@ -22,7 +22,7 @@ class Asteroid{
     func createAsteroid(startPoint : SCNVector3, endPoint : SCNVector3, animationTime : Double){
         
         
-//        let box = SCNBox(width: 0.06, height: 0.06, length: 0.06, chamferRadius: 0.2)
+//        let box = SCNBox(width: 0.06, height: 0.06, length: 0.06, chamferRadius: 0.0)
         let box = SCNSphere(radius: 0.03)
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.init(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: 1)
@@ -36,6 +36,12 @@ class Asteroid{
         asteroidnode?.physicsBody?.collisionBitMask =  CollisionCategoryAirplane
         asteroidnode?.physicsBody?.contactTestBitMask = CollisionCategoryAirplane
         asteroidnode?.physicsBody?.isAffectedByGravity = false
+        
+        //Rotation doesnt work already
+//        asteroidnode?.physicsBody?.angularDamping = 0   //If it wants to rotate, it will not go slower
+//        asteroidnode?.physicsBody?.momentOfInertia = SCNVector3(0,1,0)
+//        asteroidnode?.physicsBody?.usesDefaultMomentOfInertia = false
+//        asteroidnode?.physicsBody?.applyTorque(SCNVector4(100,100,100,100), asImpulse: true)
 
         asteroidnode!.position = startPoint
         

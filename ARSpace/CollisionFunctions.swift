@@ -8,8 +8,8 @@
 
 import Foundation
 import SceneKit
-func physicsWorldCollisionDetected(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) -> Bool{
-    
+func physicsWorldCollisionDetected(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact, view: ViewController) -> Bool{
+    view.stopSpawningAsteroids()
     NSLog("Collision detected")
     return true
 }
