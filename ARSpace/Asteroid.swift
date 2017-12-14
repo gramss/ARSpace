@@ -22,7 +22,8 @@ class Asteroid{
     func createAsteroid(startPoint : SCNVector3, endPoint : SCNVector3, animationTime : Double){
         
         
-        let box = SCNBox(width: 0.06, height: 0.06, length: 0.06, chamferRadius: 0.2)
+//        let box = SCNBox(width: 0.06, height: 0.06, length: 0.06, chamferRadius: 0.2)
+        let box = SCNSphere(radius: 0.03)
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.init(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: 1)
         box.firstMaterial = material
@@ -30,7 +31,7 @@ class Asteroid{
         asteroidnode = SCNNode(geometry: box)
         
         //Physics
-        asteroidnode?.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
+        asteroidnode?.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: box))
         asteroidnode?.physicsBody?.categoryBitMask = CollisionCategoryAsteroid
         asteroidnode?.physicsBody?.collisionBitMask =  CollisionCategoryAirplane
         asteroidnode?.physicsBody?.contactTestBitMask = CollisionCategoryAirplane

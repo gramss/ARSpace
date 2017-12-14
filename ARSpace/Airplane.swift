@@ -46,7 +46,7 @@ class Airplane{
         __scaleTo(Double(cage.shorterDistance/Float(5)))          //Shrink the model
 
         //Initialize the Airplane collision physics
-        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode, options: nil))
+        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode))
         airplanenode.physicsBody?.categoryBitMask = CollisionCategoryAirplane
         airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
         airplanenode.physicsBody?.categoryBitMask = (airplanenode.physicsBody?.collisionBitMask)!

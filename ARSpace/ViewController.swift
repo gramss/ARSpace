@@ -132,7 +132,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBAction func btnFeaturePoints(_ sender: UISwitch) {
         if(outletFeaturePoints.isOn)
         {
-            sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, SCNDebugOptions.showPhysicsShapes]
         }
         if(!outletFeaturePoints.isOn)
         {
@@ -149,8 +149,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneView.scene.physicsWorld.contactDelegate = self
         
         //Featurepoints anzeigen
-        sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
-        sceneView.debugOptions = SCNDebugOptions.showPhysicsShapes
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, SCNDebugOptions.showPhysicsShapes]
+//        sceneView.debugOptions = SCNDebugOptions.showPhysicsShapes
         
         
         // Show statistics such as fps and timing information
@@ -241,7 +241,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         asteroid!.createAsteroid(startPoint: PointVect[0], endPoint: PointVect[1], animationTime: speed)
 //        asteroid!.createAsteroid(startPoint: PointVect[0], endPoint: (cage?.getSpawnPointAirplane())!, animationTime: speed)
         //Let a second asteroid crash here:
-        asteroid!.createAsteroid(startPoint: PointVect[1], endPoint: PointVect[0], animationTime: speed)
+//        asteroid!.createAsteroid(startPoint: PointVect[1], endPoint: PointVect[0], animationTime: speed)
         
 //        sceneView.scene.physicsWorld.updateCollisionPairs()
     }
