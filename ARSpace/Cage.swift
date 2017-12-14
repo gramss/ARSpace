@@ -233,9 +233,9 @@ class Cage {
             returnArray.append(SCNVector3Make(spawnPoint.x, spawnPoint.y, spawnPoint.z - length))
         }
         //Debug - shows spawnpoint
-        let _ = generateCube(vector: returnArray[0], color: UIColor.white, node: drawNode)
+       // let _ = generateCube(vector: returnArray[0], color: UIColor.white, node: drawNode)
         //Debug - shows mirror
-        let _ = generateCube(vector: returnArray[1], color: UIColor.cyan, node: drawNode)
+       // let _ = generateCube(vector: returnArray[1], color: UIColor.cyan, node: drawNode)
         
         
         return returnArray
