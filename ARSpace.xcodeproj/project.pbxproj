@@ -13,7 +13,6 @@
 		17E610F51FAE80FA0083CFD3 /* ARSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610F41FAE80FA0083CFD3 /* ARSpaceTests.swift */; };
 		17E611001FAE80FA0083CFD3 /* ARSpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E610FF1FAE80FA0083CFD3 /* ARSpaceUITests.swift */; };
 		17E6111D1FAE813B0083CFD3 /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611101FAE81390083CFD3 /* Airplane.swift */; };
-		17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */ = {isa = PBXBuildFile; fileRef = 17E611111FAE813A0083CFD3 /* starship.dae */; };
 		17E6111F1FAE813B0083CFD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611121FAE813A0083CFD3 /* ViewController.swift */; };
 		17E611201FAE813B0083CFD3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E611131FAE813A0083CFD3 /* art.scnassets */; };
 		17E611211FAE813B0083CFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E611141FAE813A0083CFD3 /* AppDelegate.swift */; };
@@ -56,7 +55,6 @@
 		17E6110D1FAE81380083CFD3 /* ARSpace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARSpace-Bridging-Header.h"; sourceTree = "<group>"; };
 		17E6110E1FAE81390083CFD3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E611101FAE81390083CFD3 /* Airplane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
-		17E611111FAE813A0083CFD3 /* starship.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = starship.dae; sourceTree = "<group>"; };
 		17E611121FAE813A0083CFD3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		17E611131FAE813A0083CFD3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		17E611141FAE813A0083CFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				17E611131FAE813A0083CFD3 /* art.scnassets */,
 				17E611161FAE813A0083CFD3 /* Base.lproj */,
 				17E6110E1FAE81390083CFD3 /* Info.plist */,
-				17E611111FAE813A0083CFD3 /* starship.dae */,
 				17E6110D1FAE81380083CFD3 /* ARSpace-Bridging-Header.h */,
 			);
 			path = ARSpace;
@@ -264,7 +261,6 @@
 			files = (
 				1792D02D1FAE857100332F51 /* LaunchScreen.storyboard in Resources */,
 				17E611201FAE813B0083CFD3 /* art.scnassets in Resources */,
-				17E6111E1FAE813B0083CFD3 /* starship.dae in Resources */,
 				1792D0341FAEA10700332F51 /* Assets.xcassets in Resources */,
 				17E611231FAE813B0083CFD3 /* Base.lproj in Resources */,
 				8C9CF6B81FD1EDAF00F52E56 /* ToDos in Resources */,
