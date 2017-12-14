@@ -35,9 +35,7 @@ class Airplane{
             //Set the Childnodes directly on the airplanenode
             childNode.position = SCNVector3(0,0,0)
         }
-        //Initialize the Airplane collision physics
-        airplanenode.physicsBody?.categoryBitMask = CollisionCategoryAirplane
-        airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
+
         
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         rotateAirplanetoGamefield()
@@ -47,6 +45,12 @@ class Airplane{
         __setPositionVector(newPos: cage.getSpawnPointAirplane())
         __scaleTo(Double(cage.shorterDistance/Float(5)))          //Shrink the model
 
+        //Initialize the Airplane collision physics
+        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode, options: nil))
+        airplanenode.physicsBody?.categoryBitMask = CollisionCategoryAirplane
+        airplanenode.physicsBody?.collisionBitMask = CollisionCategoryAsteroid
+        airplanenode.physicsBody?.categoryBitMask = (airplanenode.physicsBody?.collisionBitMask)!
+        airplanenode.physicsBody?.isAffectedByGravity = false
 //        sceneview.scene.rootNode.addChildNode(airplanenode)
         //Rotate the Airplane to the Gamefield
   

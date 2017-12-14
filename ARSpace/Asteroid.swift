@@ -30,16 +30,18 @@ class Asteroid{
         asteroidnode = SCNNode(geometry: box)
         
         //Physics
-        asteroidnode?.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
+        asteroidnode?.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: asteroidnode!, options: nil))
         asteroidnode?.physicsBody?.categoryBitMask = CollisionCategoryAsteroid
-        asteroidnode?.physicsBody?.collisionBitMask = CollisionCategoryAsteroid | CollisionCategoryAirplane
+        asteroidnode?.physicsBody?.collisionBitMask =  CollisionCategoryAirplane
+        asteroidnode?.physicsBody?.contactTestBitMask = CollisionCategoryAirplane
         asteroidnode?.physicsBody?.isAffectedByGravity = false
 
         asteroidnode!.position = startPoint
         
-        let moveShip = SCNAction.move(to: endPoint, duration: animationTime)
-        let fadeOut = SCNAction.fadeOut(duration: fadeOutTime)
-        let routine = SCNAction.sequence([moveShip, fadeOut])
+        let moveShip    = SCNAction.move(to: endPoint, duration: animationTime)
+        let fadeOut     = SCNAction.fadeOut(duration: fadeOutTime)
+        let removeNode  = SCNAction.removeFromParentNode()
+        let routine     = SCNAction.sequence([moveShip, fadeOut, removeNode])
         __myrunAction(routine)
         
         //sceneView.scene.rootNode.addChildNode(asteroidnode!)
