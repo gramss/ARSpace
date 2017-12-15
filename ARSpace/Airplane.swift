@@ -46,7 +46,7 @@ class Airplane{
         __scaleTo(Double(cage.shorterDistance/Float(5)))          //Shrink the model
         
         let scale = CGFloat(cage.shorterDistance/Float(5))
-        let box = SCNBox(width: scale, height: scale, length: scale, chamferRadius: 0)
+        let box = SCNBox(width: scale, height: scale/2, length: scale, chamferRadius: 0)
         //Initialize the Airplane collision physics
 //        airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: airplanenode))
         airplanenode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: box))

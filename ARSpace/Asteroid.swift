@@ -25,7 +25,8 @@ class Asteroid{
 //        let box = SCNBox(width: 0.06, height: 0.06, length: 0.06, chamferRadius: 0.0)
         let box = SCNSphere(radius: 0.03)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.init(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: 1)
+        //material.diffuse.contents = UIColor.init(red: randomCGFloat(), green: randomCGFloat(), blue: randomCGFloat(), alpha: 1)
+        material.diffuse.contents = UIImage(named: "art.scnassets/astorid_rock_texture.jpg")
         box.firstMaterial = material
         
         asteroidnode = SCNNode(geometry: box)
