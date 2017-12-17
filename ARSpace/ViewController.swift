@@ -25,6 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     var asteroidSpawnFieldVar : Int = 0
     var cage : Cage?
     var scanFinished = false
+    var highscore : Int = 0
     
     
     
@@ -218,7 +219,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     //Function that gets called at collision
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact){
         NSLog("Collision detected")
-        if(!physicsWorldCollisionDetected(world, didBegin: contact, view: self)){
+        if(!physicsWorldCollisionDetected(world, didBegin: contact, view: self, node: planeNode, highscore: highscore)){
             //Test something here
         }
     }
@@ -235,6 +236,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @objc func spawnAsteroid(){
         let speed : Double = 10
         asteroidSpawnFieldVar += 1
+        highscore += 1
         if asteroidSpawnFieldVar > 4 {
             asteroidSpawnFieldVar = 1
         }
