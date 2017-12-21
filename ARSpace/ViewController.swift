@@ -131,13 +131,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     @IBOutlet weak var outletFeaturePoints: UISwitch!
     @IBAction func btnFeaturePoints(_ sender: UISwitch) {
-        if(outletFeaturePoints.isOn)
-        {
-            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, SCNDebugOptions.showPhysicsShapes]
-        }
         if(!outletFeaturePoints.isOn)
         {
             sceneView.debugOptions = []
+        }
+        if(outletFeaturePoints.isOn)
+        {
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, SCNDebugOptions.showPhysicsShapes]
         }
     }
     override func viewDidLoad() {

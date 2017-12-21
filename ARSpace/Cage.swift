@@ -77,16 +77,16 @@ class Cage {
             edges[5] = tempVector
         }
         
-        
-        drawedges.append(generateCube(vector: edges[0], color: UIColor.red,      node: node))
-        drawedges.append(generateCube(vector: edges[1], color: UIColor.blue,     node: node))
-        drawedges.append(generateCube(vector: edges[2], color: UIColor.green,    node: node))
-        drawedges.append(generateCube(vector: edges[3], color: UIColor.yellow,   node: node))
-        drawedges.append(generateCube(vector: edges[4], color: UIColor.black,    node: node))
-        drawedges.append(generateCube(vector: edges[5], color: UIColor.purple,   node: node))
-        drawedges.append(generateCube(vector: edges[6], color: UIColor.orange,   node: node))
-        drawedges.append(generateCube(vector: edges[7], color: UIColor.magenta,  node: node))
-        drawedges.append(generateCube(vector: SCNVector3Make(centerX, centerY, 0), color: UIColor.cyan, node: node))
+        //Debug, different colors for 
+        drawedges.append(generateCube(vector: edges[0], color: UIColor.clear,      node: node)) //red
+        drawedges.append(generateCube(vector: edges[1], color: UIColor.clear,     node: node))  //blue
+        drawedges.append(generateCube(vector: edges[2], color: UIColor.clear,    node: node))   //green
+        drawedges.append(generateCube(vector: edges[3], color: UIColor.clear,   node: node))    //yellow
+        drawedges.append(generateCube(vector: edges[4], color: UIColor.clear,    node: node))   //black
+        drawedges.append(generateCube(vector: edges[5], color: UIColor.clear,   node: node))    //purple
+        drawedges.append(generateCube(vector: edges[6], color: UIColor.clear,   node: node))    //orange
+        drawedges.append(generateCube(vector: edges[7], color: UIColor.clear,  node: node))     //magenta
+        drawedges.append(generateCube(vector: SCNVector3Make(centerX, centerY, 0), color: UIColor.clear, node: node))   //cyan
         
         
     }

@@ -44,6 +44,7 @@ class Asteroid{
 //        asteroidnode?.physicsBody?.usesDefaultMomentOfInertia = false
 //        asteroidnode?.physicsBody?.applyTorque(SCNVector4(100,100,100,100), asImpulse: true)
 
+        //asteroid motion
         asteroidnode!.position = startPoint
         
         let moveShip    = SCNAction.move(to: endPoint, duration: animationTime)
@@ -56,6 +57,7 @@ class Asteroid{
         plannode.addChildNode(asteroidnode!)
     }
     
+    //random color
     func randomCGFloat() -> CGFloat {
         let min : CGFloat = 0
         let max : CGFloat = 1
