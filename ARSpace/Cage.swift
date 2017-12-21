@@ -21,7 +21,7 @@ class Cage {
         centerPos = planeNode.position //Let's see if this works
         let centerX = centerPos.x
         let centerY = centerPos.z
-        drawNode    = node
+        drawNode    = node      // node = planeNode.parent!
         self.cageHeight = cageHeight
 //        let centerZ = centerPos.z
         NSLog("centerPos: %d %d %d", centerPos.x, centerPos.y, centerPos.z)
@@ -125,17 +125,9 @@ class Cage {
     func getSpawnPointAirplane() -> SCNVector3 {
         var spawnPoint = SCNVector3()
         spawnPoint.y = edges[0].y + cageHeight/2
-//        spawnPoint = edges[0]
-        if width < length {
-            spawnPoint.x = (edges[1].x - edges[0].x)/2 + edges[0].x
-
-            spawnPoint.z = edges[0].z
-        }
-        else{
-            spawnPoint.x = edges[0].x
-
-            spawnPoint.z = (edges[1].z - edges[0].z)/2 + edges[0].z
-        }
+        //Mittelpunkt zwischen Edge 1 und Edge 0
+        spawnPoint.x = (edges[1].x - edges[0].x)/2 + edges[0].x
+        spawnPoint.z = (edges[1].z - edges[0].z)/2 + edges[0].z
         return spawnPoint
     }
     
@@ -147,7 +139,8 @@ class Cage {
         cube.firstMaterial = material
         let testnode = SCNNode(geometry: cube)
         
-        testnode.simdPosition = float3(vector.x, vector.y, vector.z)
+//        testnode.simdPosition = float3(vector.x, vector.y, vector.z)
+        testnode.position = vector
         node.addChildNode(testnode)
         return testnode
     }
